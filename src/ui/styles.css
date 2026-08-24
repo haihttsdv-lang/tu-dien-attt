@@ -380,6 +380,42 @@ a {
   margin: 2px 0 0;
 }
 
+.diagram-figure {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.diagram-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.diagram-legend {
+  width: 100%;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.diagram-legend li {
+  margin-bottom: 3px;
+}
+
+.diagram-legend strong {
+  color: var(--text);
+}
+
 .offline-pill {
   display: inline-flex;
   align-items: center;

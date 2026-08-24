@@ -1,6 +1,7 @@
 import { DisclaimerFooter } from "../components/DisclaimerFooter";
 import { useContentBundle } from "../context/ContentContext";
 import { isReviewOverdue } from "../../core/effectivity";
+import { TIER_DEPTH } from "../diagrams/conceptDiagrams";
 
 const REVIEW_CYCLE_DAYS = 90;
 
@@ -30,6 +31,11 @@ export function AboutPage() {
           lý hoặc chuẩn mực cụ thể, kiểm tra tự động ở tầng schema và kiểm thử
           (xem <code>scripts/validate/validate-content.ts</code>).
         </p>
+      </div>
+
+      <div className="card">
+        <h2>Ba tầng độ sâu nội dung</h2>
+        {TIER_DEPTH}
       </div>
 
       <div className="card">

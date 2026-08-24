@@ -8,6 +8,8 @@ import {
   todayIso
 } from "../../core/effectivity";
 import { NotFoundPage } from "./NotFoundPage";
+import { DocumentRelationGraph } from "../components/diagrams/DocumentRelationGraph";
+import { EffectivityTimeline, type TimelineEvent } from "../components/diagrams/EffectivityTimeline";
 
 const RELATION_LABEL: Record<string, string> = {
   thay_the: "Thay thế",
@@ -36,6 +38,34 @@ export function DocumentDetailPage() {
 
   const outgoingRelations = bundle.documentRelations.filter((r) => r.fromDocId === doc.id);
   const incomingRelations = bundle.documentRelations.filter((r) => r.toDocId === doc.id);
+
+  const relationEdges = [
+    ...outgoingRelations.map((r) => ({
+      doc: bundle.legalDocuments.find((d) => d.id === r.toDocId),
+      relation: r,
+      direction: "out" as const
+    })),
+    ...incomingRelations.map((r) => ({
+      doc: bundle.legalDocuments.find((d) => d.id === r.fromDocId),
+      relation: r,
+      direction: "in" as const
+    }))
+  ].filter((e): e is { doc: NonNullable<typeof e.doc>; relation: (typeof e)["relation"]; direction: "out" | "in" } =>
+    Boolean(e.doc)
+  );
+
+  const timelineEvents: TimelineEvent[] = [];
+  if (doc.issuedDate) timelineEvents.push({ date: doc.issuedDate, label: "Ban hành", kind: "issued" });
+  if (doc.effectiveFrom) timelineEvents.push({ date: doc.effectiveFrom, label: "Hiệu lực toàn văn", kind: "effective" });
+  for (const a of articles) {
+    if (a.repealedDate) {
+      timelineEvents.push({ date: a.repealedDate, label: `${a.articleRef} bị bãi bỏ`, kind: "repealed" });
+    } else if (a.effectiveFrom && a.effectiveFrom !== doc.effectiveFrom) {
+      timelineEvents.push({ date: a.effectiveFrom, label: `${a.articleRef} hiệu lực riêng`, kind: "effective" });
+    }
+  }
+  const todayEvent: TimelineEvent = { date: todayIso(), label: "Hôm nay", kind: "today" };
+  if (!timelineEvents.some((e) => e.date === todayEvent.date)) timelineEvents.push(todayEvent);
 
   return (
     <div>
@@ -117,6 +147,12 @@ export function DocumentDetailPage() {
         </dl>
       </div>
 
+      {timelineEvents.length > 1 && (
+        <div className="card" style={{ overflowX: "auto" }}>
+          <EffectivityTimeline title="Đường thời gian hiệu lực" events={timelineEvents} />
+        </div>
+      )}
+
       {articles.length > 0 && (
         <div className="card">
           <h2>Điều khoản</h2>
@@ -164,6 +200,7 @@ export function DocumentDetailPage() {
       {(outgoingRelations.length > 0 || incomingRelations.length > 0) && (
         <div className="card">
           <h2>Quan hệ với văn bản khác</h2>
+          <DocumentRelationGraph center={doc} edges={relationEdges} />
           {outgoingRelations.map((r, i) => {
             const target = bundle.legalDocuments.find((d) => d.id === r.toDocId);
             return (

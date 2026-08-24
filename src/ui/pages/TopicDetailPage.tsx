@@ -7,6 +7,8 @@ import { DisclaimerFooter } from "../components/DisclaimerFooter";
 import { useBookmarks } from "../hooks/useLocalHistory";
 import { TOPIC_GROUP_LABEL, type ContentTier } from "../../data/schema/models";
 import { NotFoundPage } from "./NotFoundPage";
+import { getConceptDiagram } from "../diagrams/conceptDiagrams";
+import { TopicRelationGraph } from "../components/diagrams/TopicRelationGraph";
 
 const TIERS: { id: ContentTier; label: string }[] = [
   { id: "T1", label: "T1 — Tra cứu nhanh" },
@@ -44,7 +46,17 @@ export function TopicDetailPage() {
   const relatedAuditProgram = bundle.auditPrograms.find((a) => a.topicId === topicId);
   const relatedInterviewQuestions = bundle.interviewQuestions.filter((q) => q.topicId === topicId);
 
+  const relatedTopics = useMemo(
+    () =>
+      (topic?.relatedTopicIds ?? [])
+        .map((rid) => bundle.topics.find((t) => t.id === rid))
+        .filter((t): t is NonNullable<typeof t> => Boolean(t)),
+    [topic, bundle.topics]
+  );
+
   if (!topic) return <NotFoundPage />;
+
+  const conceptDiagram = getConceptDiagram(topic.id);
 
   const href = `/chu-de/${topic.id}`;
 
@@ -92,6 +104,8 @@ export function TopicDetailPage() {
           </button>
         ))}
       </div>
+
+      {conceptDiagram}
 
       {blocksForTier.length === 0 ? (
         <div className="card">
@@ -148,20 +162,10 @@ export function TopicDetailPage() {
         </div>
       )}
 
-      {topic.relatedTopicIds.length > 0 && (
+      {relatedTopics.length > 0 && (
         <div className="card">
           <h2>Chủ đề liên quan</h2>
-          <div className="filter-row">
-            {topic.relatedTopicIds.map((rid) => {
-              const rt = bundle.topics.find((t) => t.id === rid);
-              if (!rt) return null;
-              return (
-                <Link key={rid} to={`/chu-de/${rid}`} className="chip" style={{ textDecoration: "none" }}>
-                  {rt.id} — {rt.title}
-                </Link>
-              );
-            })}
-          </div>
+          <TopicRelationGraph center={topic} related={relatedTopics} />
         </div>
       )}
 
