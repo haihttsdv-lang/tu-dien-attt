@@ -20,6 +20,7 @@ import { contentBlocksT2Vh } from "./topics/content-blocks-t2-vh";
 import { contentBlocksT2Kg } from "./topics/content-blocks-t2-kg";
 import { contentBlocksT2Cc } from "./topics/content-blocks-t2-cc";
 import { contentBlocksT2Mn } from "./topics/content-blocks-t2-mn";
+import { contentBlocksT2PlNew } from "./topics/content-blocks-t2-pl-new";
 import { legalDocuments, documentArticles, documentRelations } from "./documents";
 import { frameworks } from "./frameworks";
 import { terms } from "./terms";
@@ -59,7 +60,8 @@ export const contentBundle: ContentBundle = {
     ...contentBlocksT2Vh,
     ...contentBlocksT2Kg,
     ...contentBlocksT2Cc,
-    ...contentBlocksT2Mn
+    ...contentBlocksT2Mn,
+    ...contentBlocksT2PlNew
   ],
   terms,
   auditPrograms,

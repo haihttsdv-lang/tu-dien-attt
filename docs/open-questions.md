@@ -80,10 +80,9 @@ sau của URD **cố ý chưa triển khai**, không phải thiếu sót:
   chủ đề, chưa phủ toàn bộ 93 chủ đề.
 - Nội dung T3 (tham chiếu chuyên sâu — danh mục điều khoản đầy đủ, không
   giới hạn độ dài) — chưa triển khai cho chủ đề nào.
-- T1 hiện phủ **92/93 chủ đề** (chỉ còn thiếu PL-12 — dự thảo, xem bảng
-  trên). T2 (giải thích đầy đủ 500–900 từ) mới phủ **84/93** — 8 chủ đề PL
-  vừa mở khóa (PL-01, 02, 03, 04, 05, 09, 10, 11) mới có T1, CHƯA có T2,
-  đúng thứ tự URD §5.11 (phủ rộng T1 trước khi đào sâu T2 cho chủ đề mới).
+- T1 VÀ T2 hiện đều phủ **92/93 chủ đề** — chỉ còn thiếu PL-12 (dự thảo,
+  chưa ban hành, xem bảng trên). Đây là mức độ hoàn thành nội dung tối đa
+  có thể đạt được mà không vi phạm quy tắc chống bịa nguồn.
 - Sơ đồ minh họa (SVG tự vẽ) mới phủ khoảng 17 chủ đề có hình dạng khái
   niệm rõ ràng (quy trình vòng lặp, phân lớp, kiến trúc Zero Trust, RTO/RPO)
   — không phải mọi chủ đề đều có dạng hình ảnh tự nhiên nên phần lớn vẫn
