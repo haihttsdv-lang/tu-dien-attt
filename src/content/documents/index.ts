@@ -142,6 +142,34 @@ export const legalDocuments: LegalDocument[] = [
       "Bị thay thế kể từ 01/01/2026 khi Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 và nghị định hướng dẫn mới có hiệu lực. Chưa đối chiếu trực tiếp qua vbpl.vn trong phiên này (nguồn: thuvienphapluat, tier B)."
   },
   {
+    id: "nd-53-2022-cp",
+    docNumber: "53/2022/NĐ-CP",
+    title: "Quy định chi tiết một số điều của Luật An ninh mạng",
+    issuer: "Chính phủ",
+    issuedDate: "2022-08-15",
+    effectiveFrom: "2022-10-01",
+    status: "con_hieu_luc",
+    sourceTier: "A",
+    lastVerifiedAt: V,
+    verifiedBy: VERIFIED_BY,
+    verificationNote:
+      "Xác nhận qua vanban.chinhphu.vn, xaydungchinhsach.chinhphu.vn, cspl.mic.gov.vn (Bộ TT&TT), mod.gov.vn — đối chiếu chéo nhất quán. Chứa yêu cầu lưu trữ dữ liệu và đặt chi nhánh/văn phòng đại diện tại Việt Nam đối với một số nhóm doanh nghiệp trong/ngoài nước cung cấp dịch vụ trên không gian mạng (PL-03). CHƯA trích dẫn chi tiết điều khoản/đối tượng áp dụng cụ thể ở tầng nội dung — cần đọc nguyên văn trước khi xác định một tổ chức cụ thể có thuộc diện phải lưu trữ dữ liệu trong nước hay không."
+  },
+  {
+    id: "qd-2345-nhnn",
+    docNumber: "2345/QĐ-NHNN",
+    title: "Triển khai các giải pháp an toàn, bảo mật trong thanh toán trực tuyến và thanh toán thẻ ngân hàng",
+    issuer: "Ngân hàng Nhà nước Việt Nam",
+    issuedDate: "2023-12-18",
+    effectiveFrom: "2024-07-01",
+    status: "con_hieu_luc",
+    sourceTier: "B",
+    lastVerifiedAt: V,
+    verifiedBy: VERIFIED_BY,
+    verificationNote:
+      "Là QUYẾT ĐỊNH (văn bản hành chính cá biệt của NHNN), không phải văn bản quy phạm pháp luật công bố trên Công báo theo cách một Thông tư/Nghị định được công bố — do đó xếp sourceTier B dù được nhiều nguồn đối chiếu nhất quán (cổng chính sách Chính phủ, chi nhánh NHNN địa phương, Hiệp hội Ngân hàng Việt Nam). Ngưỡng xác thực sinh trắc học nêu trong ContentBlock PL-10 (>10 triệu đồng/giao dịch; OTP nếu <10 triệu và tổng trong ngày ≤20 triệu đồng) được nhiều nguồn độc lập nhắc lại nhất quán nhưng CHƯA được đối chiếu trực tiếp với văn bản gốc — bắt buộc xác minh lại trước khi dùng cho hồ sơ kiểm tra chính thức, đặc biệt vì đây là quyết định hành chính có thể đã được sửa đổi/thay thế mà không tạo tiếng vang truyền thông lớn như lần ban hành đầu."
+  },
+  {
     id: "nd-85-2016-cp",
     docNumber: "85/2016/NĐ-CP",
     title: "Bảo đảm an toàn hệ thống thông tin theo cấp độ",

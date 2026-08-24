@@ -1,10 +1,12 @@
 /**
- * ContentBlock T1 cho 5 chu de PL moi duoc mo khoa ngay 2026-08-24 sau khi
- * tra cuu doc lap tim duoc can cu nguon hang A (xem
+ * ContentBlock T1 cho 8 chu de PL moi duoc mo khoa ngay 2026-08-24 sau hai
+ * vong tra cuu doc lap tim duoc can cu nguon (xem
  * src/content/documents/index.ts). PL-01 van o trang thai than trong
- * (chua_xac_minh) vi chi tiet hieu luc mot phan chua ro. Khong dua PL-03,
- * PL-10, PL-12 vao day — van chua co can cu du tin cay, xem
- * docs/open-questions.md.
+ * (chua_xac_minh) vi chi tiet hieu luc mot phan chua ro. PL-10 dua ra so
+ * lieu nguong cu the (10/20 trieu dong) da duoc nhieu nguon doc lap xac
+ * nhan nhat quan nhung van kem canh bao ro rang phai doi chieu lai truoc
+ * khi dung cho ho so chinh thuc — xem verificationNote cua qd-2345-nhnn.
+ * Khong dua PL-12 vao day — van chi la du thao, chua ban hanh.
  */
 import type { ContentBlock } from "../../data/schema/models";
 
@@ -80,6 +82,30 @@ export const contentBlocksPlNew: ContentBlock[] = [
     body:
       "Thông tư 20/2017/TT-BTTTT (ban hành 12/9/2017, hiệu lực 01/11/2017) quy định về điều phối, ứng cứu sự cố an toàn thông tin mạng trên toàn quốc — văn bản có khả năng cao nhất là căn cứ trả lời câu hỏi 'phải báo cho ai, trong bao lâu' khi có sự cố. CẢNH BÁO QUAN TRỌNG (ưu tiên xác minh cao nhất của toàn bộ dự án): THỜI HẠN BÁO CÁO SỰ CỐ CỤ THỂ CHƯA ĐƯỢC XÁC MINH trực tiếp từ văn bản gốc trong kho này — tuyệt đối KHÔNG suy đoán hay áp dụng bất kỳ con số thời hạn nào tìm thấy từ nguồn không chính thức. Trước khi xử lý một sự cố thực tế có nghĩa vụ báo cáo, PHẢI tra cứu trực tiếp nguyên văn Thông tư 20/2017/TT-BTTTT (và các văn bản sửa đổi nếu có) qua vbpl.vn hoặc cổng thông tin Bộ Thông tin và Truyền thông/Cục An toàn thông tin.",
     sources: [{ type: "legal_document", refId: "tt-20-2017-btttt" }],
+    classification: "cong_khai",
+    status: "da_duyet",
+    version: 1
+  },
+  {
+    id: "cb-pl03-t1",
+    topicId: "PL-03",
+    tier: "T1",
+    kind: "dien_giai",
+    body:
+      "Nghị định 53/2022/NĐ-CP (ban hành 15/8/2022, hiệu lực 01/10/2022) quy định chi tiết một số điều của Luật An ninh mạng (xem PL-02), trong đó có yêu cầu về lưu trữ dữ liệu tại Việt Nam và đặt chi nhánh/văn phòng đại diện tại Việt Nam đối với một số nhóm doanh nghiệp trong và ngoài nước cung cấp dịch vụ trên không gian mạng, khi thuộc các điều kiện cụ thể do Nghị định quy định. CẢNH BÁO: kho tri thức này CHƯA trích dẫn chi tiết điều kiện áp dụng, loại dữ liệu phải lưu trữ, hay thời hạn lưu trữ cụ thể — việc xác định một tổ chức/doanh nghiệp cụ thể có thuộc diện phải tuân thủ hay không đòi hỏi đọc trực tiếp nguyên văn Nghị định, không suy đoán từ mô tả tổng quát này.",
+    sources: [{ type: "legal_document", refId: "nd-53-2022-cp" }],
+    classification: "cong_khai",
+    status: "da_duyet",
+    version: 1
+  },
+  {
+    id: "cb-pl10-t1",
+    topicId: "PL-10",
+    tier: "T1",
+    kind: "dien_giai",
+    body:
+      "Quyết định 2345/QĐ-NHNN (18/12/2023, hiệu lực 01/07/2024) yêu cầu giải pháp an toàn, bảo mật trong thanh toán trực tuyến và thẻ ngân hàng, đặt ngưỡng bắt buộc xác thực sinh trắc học (khuôn mặt/vân tay) cho chuyển tiền/nạp ví điện tử. Nhiều nguồn tham khảo nhắc lại nhất quán: trên 10 triệu đồng/giao dịch phải xác thực sinh trắc học; dưới 10 triệu đồng và tổng trong ngày ≤20 triệu đồng có thể chỉ cần OTP. CẢNH BÁO: đây là văn bản hành chính cá biệt, không phải Luật/Nghị định/Thông tư công bố rộng rãi — hai con số ngưỡng CHƯA đối chiếu trực tiếp với văn bản gốc. Bắt buộc xác minh lại trước khi dùng cho hồ sơ chính thức, vì có thể đã được sửa đổi.",
+    sources: [{ type: "legal_document", refId: "qd-2345-nhnn" }],
     classification: "cong_khai",
     status: "da_duyet",
     version: 1

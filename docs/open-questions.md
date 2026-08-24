@@ -21,13 +21,18 @@ cổng bộ ngành) đã **mở khóa 6/9 chủ đề PL** còn thiếu — xem
 | PL-09 | Thông tư 13/2018/TT-NHNN | `con_hieu_luc` | Chưa kiểm tra thông tư sửa đổi/bổ sung sau 2018 |
 | PL-11 | Thông tư 20/2017/TT-BTTTT | `con_hieu_luc` | **Thời hạn báo cáo cụ thể VẪN chưa xác minh — vẫn là ưu tiên cao nhất, xem cảnh báo trong ContentBlock** |
 
-**Vẫn hoàn toàn chưa có căn cứ đủ tin cậy** (không có ContentBlock):
+**Vòng tra cứu thứ ba** (cùng ngày) mở khóa thêm PL-03 và PL-10:
 
-| Chủ đề liên quan | Văn bản cần xác minh | Ghi chú vòng tra cứu 2026-08-24 |
+| Chủ đề | Văn bản đã nhập | Trạng thái | Còn thiếu gì |
+|---|---|---|---|
+| PL-03 | Nghị định 53/2022/NĐ-CP (hướng dẫn Luật An ninh mạng) | `con_hieu_luc` | Điều kiện áp dụng cụ thể (đối tượng, loại dữ liệu, thời hạn lưu) chưa trích dẫn chi tiết |
+| PL-10 | Quyết định 2345/QĐ-NHNN | `con_hieu_luc`, sourceTier **B** (văn bản hành chính cá biệt, không phải VBQPPL công bố rộng rãi) | Ngưỡng 10tr/20tr đồng đã nêu trong ContentBlock nhưng **CHƯA đối chiếu trực tiếp văn bản gốc** — cảnh báo rõ trong nội dung, bắt buộc xác minh lại trước khi dùng chính thức |
+
+**Chỉ còn duy nhất 1/93 chủ đề chưa có ContentBlock nào:**
+
+| Chủ đề liên quan | Văn bản cần xác minh | Ghi chú |
 |---|---|---|
-| PL-03 | Yêu cầu lưu trữ dữ liệu trong nước | Chưa tìm được nghị định hướng dẫn cụ thể đủ tin cậy trong vòng tra cứu này |
-| PL-10 | Quyết định/thông tư NHNN về ngưỡng xác thực sinh trắc học | Chưa tìm được; TT 18/2024/TT-NHNN vẫn chỉ là dấu hiệu chưa xác minh |
-| PL-12 | Chế tài xử phạt ATTT/dữ liệu cá nhân | Xác nhận **mới là DỰ THẢO** (Nghị định xử phạt vi phạm hành chính lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân), chưa ban hành chính thức tại thời điểm tra cứu — không nhập vào kho vì URD cấm để dự thảo lẫn vào tra cứu mặc định (FR-E14 áp dụng ngược: chưa đủ căn cứ để nhập ngay cả ở trạng thái "dự thảo") |
+| PL-12 | Chế tài xử phạt ATTT/dữ liệu cá nhân | Xác nhận **mới là DỰ THẢO** (Nghị định xử phạt vi phạm hành chính lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân), chưa ban hành chính thức tại thời điểm tra cứu (bản dự thảo được công bố lấy ý kiến khoảng 03/2026) — không nhập vào kho vì chưa có văn bản chính thức để dẫn nguồn; sẽ bổ sung ngay khi nghị định được ban hành |
 
 ## Framework quốc tế — phiên bản chưa xác minh độc lập
 
@@ -75,10 +80,10 @@ sau của URD **cố ý chưa triển khai**, không phải thiếu sót:
   chủ đề, chưa phủ toàn bộ 93 chủ đề.
 - Nội dung T3 (tham chiếu chuyên sâu — danh mục điều khoản đầy đủ, không
   giới hạn độ dài) — chưa triển khai cho chủ đề nào.
-- T1 hiện phủ **90/93 chủ đề** (còn thiếu PL-03, PL-10, PL-12 — xem bảng
-  trên). T2 (giải thích đầy đủ 500–900 từ) mới phủ **84/93** — 6 chủ đề PL
-  vừa mở khóa (PL-01, 02, 04, 05, 09, 11) mới có T1, CHƯA có T2, đúng thứ tự
-  URD §5.11 (phủ rộng T1 trước khi đào sâu T2 cho chủ đề mới).
+- T1 hiện phủ **92/93 chủ đề** (chỉ còn thiếu PL-12 — dự thảo, xem bảng
+  trên). T2 (giải thích đầy đủ 500–900 từ) mới phủ **84/93** — 8 chủ đề PL
+  vừa mở khóa (PL-01, 02, 03, 04, 05, 09, 10, 11) mới có T1, CHƯA có T2,
+  đúng thứ tự URD §5.11 (phủ rộng T1 trước khi đào sâu T2 cho chủ đề mới).
 - Sơ đồ minh họa (SVG tự vẽ) mới phủ khoảng 17 chủ đề có hình dạng khái
   niệm rõ ràng (quy trình vòng lặp, phân lớp, kiến trúc Zero Trust, RTO/RPO)
   — không phải mọi chủ đề đều có dạng hình ảnh tự nhiên nên phần lớn vẫn
