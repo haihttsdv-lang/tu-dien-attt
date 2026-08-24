@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { TOPIC_GROUP_LABEL, type TopicGroup } from "../../data/schema/models";
 import { DisclaimerFooter } from "../components/DisclaimerFooter";
+import { useContentBundle } from "../context/ContentContext";
+import { GroupOverviewChart } from "../components/diagrams/GroupOverviewChart";
 
 const GROUPS = Object.keys(TOPIC_GROUP_LABEL) as TopicGroup[];
 
 export function HomePage() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
+  const bundle = useContentBundle();
+  const topicIdsWithContent = useMemo(
+    () => new Set(bundle.contentBlocks.map((c) => c.topicId)),
+    [bundle.contentBlocks]
+  );
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -46,6 +53,7 @@ export function HomePage() {
       </div>
 
       <h2 style={{ marginTop: 24 }}>Duyệt theo nhóm chủ đề</h2>
+      <GroupOverviewChart topics={bundle.topics} topicIdsWithContent={topicIdsWithContent} />
       <div className="group-grid">
         {GROUPS.map((g) => (
           <Link key={g} to={`/chu-de?nhom=${g}`} className="card card-link">
