@@ -3,6 +3,13 @@ import { CycleDiagram } from "../components/diagrams/CycleDiagram";
 import { LayeredDiagram } from "../components/diagrams/LayeredDiagram";
 import { ZeroTrustDiagram } from "../components/diagrams/ZeroTrustDiagram";
 import { RtoRpoDiagram } from "../components/diagrams/RtoRpoDiagram";
+import { SymmetricCryptoDiagram } from "../components/diagrams/SymmetricCryptoDiagram";
+import { AsymmetricCryptoDiagram } from "../components/diagrams/AsymmetricCryptoDiagram";
+import { DigitalSignatureDiagram } from "../components/diagrams/DigitalSignatureDiagram";
+import { OAuthFlowDiagram } from "../components/diagrams/OAuthFlowDiagram";
+import { MfaFlowDiagram } from "../components/diagrams/MfaFlowDiagram";
+import { LogPipelineDiagram } from "../components/diagrams/LogPipelineDiagram";
+import { NetworkZonesDiagram } from "../components/diagrams/NetworkZonesDiagram";
 
 /**
  * So do khai niem thu cong cho cac chu de "kinh dien" — day la hinh minh
@@ -13,6 +20,7 @@ import { RtoRpoDiagram } from "../components/diagrams/RtoRpoDiagram";
  */
 const PDCA = (
   <CycleDiagram
+    key="pdca"
     title="Chu trình PDCA của ISMS"
     steps={[
       { label: "Plan", detail: "hoạch định: bối cảnh, rủi ro, mục tiêu" },
@@ -25,6 +33,7 @@ const PDCA = (
 
 const RISK_CYCLE = (
   <CycleDiagram
+    key="risk-cycle"
     title="Vòng đời quản lý rủi ro an toàn thông tin"
     steps={[
       { label: "Nhận diện", detail: "tài sản, mối đe dọa, điểm yếu" },
@@ -37,6 +46,7 @@ const RISK_CYCLE = (
 
 const THREE_LINES = (
   <LayeredDiagram
+    key="three-lines"
     title="Mô hình ba tuyến phòng thủ"
     layers={[
       { label: "Tuyến 1 — Đơn vị vận hành", detail: "sở hữu và quản lý rủi ro hằng ngày" },
@@ -48,6 +58,7 @@ const THREE_LINES = (
 
 const DOC_HIERARCHY = (
   <LayeredDiagram
+    key="doc-hierarchy"
     title="Cấu trúc tài liệu quản trị ATTT"
     layers={[
       { label: "Chính sách", detail: "định hướng, cam kết cấp lãnh đạo" },
@@ -60,6 +71,7 @@ const DOC_HIERARCHY = (
 
 const NIST_CSF_WHEEL = (
   <CycleDiagram
+    key="nist-csf"
     title="6 hàm của NIST CSF 2.0 (minh họa đơn giản hóa)"
     steps={[
       { label: "Govern", detail: "quản trị xuyên suốt" },
@@ -74,6 +86,7 @@ const NIST_CSF_WHEEL = (
 
 const INCIDENT_RESPONSE = (
   <CycleDiagram
+    key="incident-response"
     title="Ứng phó sự cố theo NIST SP 800-61 Rev. 3 (ánh xạ CSF 2.0)"
     steps={[
       { label: "Identify", detail: "nhận diện dấu hiệu" },
@@ -87,6 +100,7 @@ const INCIDENT_RESPONSE = (
 
 const BCM_CYCLE = (
   <CycleDiagram
+    key="bcm-cycle"
     title="Vòng đời quản lý liên tục hoạt động"
     steps={[
       { label: "Phân tích tác động", detail: "BIA — xác định quy trình trọng yếu" },
@@ -111,6 +125,7 @@ const TIER_DEPTH = (
 
 const IAM_LIFECYCLE = (
   <CycleDiagram
+    key="iam-lifecycle"
     title="Vòng đời định danh (Joiner–Mover–Leaver)"
     steps={[
       { label: "Cấp phát", detail: "tạo tài khoản khi vào tổ chức/nhận vai trò mới" },
@@ -124,6 +139,7 @@ const IAM_LIFECYCLE = (
 
 const VULN_MGMT_CYCLE = (
   <CycleDiagram
+    key="vuln-cycle"
     title="Vòng đời quản lý điểm yếu"
     steps={[
       { label: "Quét", detail: "phát hiện điểm yếu định kỳ/liên tục" },
@@ -136,6 +152,7 @@ const VULN_MGMT_CYCLE = (
 
 const SOC_TIERS = (
   <LayeredDiagram
+    key="soc-tiers"
     title="Cấu trúc phân tuyến SOC"
     layers={[
       { label: "Tuyến 1 — Giám sát & lọc cảnh báo", detail: "tiếp nhận, phân loại ban đầu" },
@@ -147,6 +164,7 @@ const SOC_TIERS = (
 
 const DATA_CLASSIFICATION = (
   <LayeredDiagram
+    key="data-classification"
     title="Ví dụ thang phân loại thông tin"
     layers={[
       { label: "Công khai", detail: "được phép công bố rộng rãi" },
@@ -157,28 +175,43 @@ const DATA_CLASSIFICATION = (
   />
 );
 
-const registry: Record<string, ReactNode> = {
-  "KT-02": IAM_LIFECYCLE,
-  "KT-10": VULN_MGMT_CYCLE,
-  "VH-01": SOC_TIERS,
-  "KT-09": DATA_CLASSIFICATION,
-  "CC-04": <RtoRpoDiagram key="rto-rpo" />,
-  "CM-01": PDCA,
-  "QT-01": PDCA,
-  "QT-03": RISK_CYCLE,
-  "CM-03": RISK_CYCLE,
-  "KG-01": THREE_LINES,
-  "QT-02": DOC_HIERARCHY,
-  "CM-07": NIST_CSF_WHEEL,
-  "VH-06": INCIDENT_RESPONSE,
-  "CM-09": INCIDENT_RESPONSE,
-  "CC-01": BCM_CYCLE,
-  "KT-12": <ZeroTrustDiagram key="zt" />,
-  "CM-10": <ZeroTrustDiagram key="zt" />
+/**
+ * Nhieu chu de KY THUAT can so do CO CHE (the hien cach mot giao thuc/thuat
+ * toan hoat dong tung buoc — vd. Zero Trust, ma hoa, chu ky so), khac voi
+ * so do QUY TRINH/QUAN TRI (chu trinh PDCA, quan ly rui ro...). Moi chu de
+ * co the co NHIEU so do — dang mang, khong chi mot.
+ */
+const registry: Record<string, ReactNode[]> = {
+  "KT-02": [<MfaFlowDiagram key="mfa" />, IAM_LIFECYCLE],
+  "KT-04": [
+    <SymmetricCryptoDiagram key="sym" />,
+    <AsymmetricCryptoDiagram key="asym" />,
+    <DigitalSignatureDiagram key="sig" />
+  ],
+  "KT-08": [<OAuthFlowDiagram key="oauth" />],
+  "NH-06": [<OAuthFlowDiagram key="oauth" />],
+  "VH-02": [<LogPipelineDiagram key="logpipe" />],
+  "KT-01": [<NetworkZonesDiagram key="netzones" />],
+  "KT-10": [VULN_MGMT_CYCLE],
+  "VH-01": [SOC_TIERS],
+  "KT-09": [DATA_CLASSIFICATION],
+  "CC-04": [<RtoRpoDiagram key="rto-rpo" />],
+  "CM-01": [PDCA],
+  "QT-01": [PDCA],
+  "QT-03": [RISK_CYCLE],
+  "CM-03": [RISK_CYCLE],
+  "KG-01": [THREE_LINES],
+  "QT-02": [DOC_HIERARCHY],
+  "CM-07": [NIST_CSF_WHEEL],
+  "VH-06": [INCIDENT_RESPONSE],
+  "CM-09": [INCIDENT_RESPONSE],
+  "CC-01": [BCM_CYCLE],
+  "KT-12": [<ZeroTrustDiagram key="zt" />],
+  "CM-10": [<ZeroTrustDiagram key="zt" />]
 };
 
-export function getConceptDiagram(topicId: string): ReactNode | null {
-  return registry[topicId] ?? null;
+export function getConceptDiagrams(topicId: string): ReactNode[] {
+  return registry[topicId] ?? [];
 }
 
 export { TIER_DEPTH };

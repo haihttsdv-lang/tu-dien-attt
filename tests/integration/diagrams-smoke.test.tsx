@@ -39,6 +39,31 @@ describe("So do khai niem — khong crash runtime", () => {
     renderTopic("KT-03"); // co relatedTopicIds: ["KT-02"]
     expect(screen.getByText(/Sơ đồ quan hệ chủ đề/i)).toBeTruthy();
   });
+
+  it("3 so do co che ma hoa/chu ky so render duoc tren KT-04 (khong crash)", () => {
+    renderTopic("KT-04");
+    expect(screen.getAllByText(/Mã hóa đối xứng \(Symmetric/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Mã hóa bất đối xứng/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/^Chữ ký số/i).length).toBeGreaterThan(0);
+  });
+
+  it("So do luong OAuth 2.0 render duoc tren KT-08 va NH-06", () => {
+    renderTopic("KT-08");
+    expect(screen.getByText(/Ủy quyền OAuth 2\.0/i)).toBeTruthy();
+    renderTopic("NH-06");
+    expect(screen.getAllByText(/Ủy quyền OAuth 2\.0/i).length).toBeGreaterThan(0);
+  });
+
+  it("So do MFA render duoc tren KT-02 (cung voi vong doi IAM)", () => {
+    renderTopic("KT-02");
+    expect(screen.getAllByText(/Xác thực đa yếu tố \(MFA\) — ba loại/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Vòng đời định danh/i).length).toBeGreaterThan(0);
+  });
+
+  it("So do duong di nhat ky render duoc tren VH-02", () => {
+    renderTopic("VH-02");
+    expect(screen.getByText(/Đường đi của nhật ký/i)).toBeTruthy();
+  });
 });
 
 describe("So do van ban — khong crash runtime", () => {

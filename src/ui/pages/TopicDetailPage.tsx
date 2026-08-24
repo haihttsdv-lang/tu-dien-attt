@@ -7,7 +7,7 @@ import { DisclaimerFooter } from "../components/DisclaimerFooter";
 import { useBookmarks } from "../hooks/useLocalHistory";
 import { TOPIC_GROUP_LABEL, type ContentTier } from "../../data/schema/models";
 import { NotFoundPage } from "./NotFoundPage";
-import { getConceptDiagram } from "../diagrams/conceptDiagrams";
+import { getConceptDiagrams } from "../diagrams/conceptDiagrams";
 import { TopicRelationGraph } from "../components/diagrams/TopicRelationGraph";
 
 const TIERS: { id: ContentTier; label: string }[] = [
@@ -56,7 +56,7 @@ export function TopicDetailPage() {
 
   if (!topic) return <NotFoundPage />;
 
-  const conceptDiagram = getConceptDiagram(topic.id);
+  const conceptDiagrams = getConceptDiagrams(topic.id);
 
   const href = `/chu-de/${topic.id}`;
 
@@ -105,7 +105,7 @@ export function TopicDetailPage() {
         ))}
       </div>
 
-      {conceptDiagram}
+      {conceptDiagrams}
 
       {blocksForTier.length === 0 ? (
         <div className="card">
