@@ -1,6 +1,7 @@
 import type { ContentBundle } from "../data/schema/models";
 import { topics } from "./topics";
 import { contentBlocks } from "./topics/content-blocks";
+import { contentBlocksPlNew } from "./topics/content-blocks-pl-new";
 import { contentBlocksCm } from "./topics/content-blocks-cm";
 import { contentBlocksQt } from "./topics/content-blocks-qt";
 import { contentBlocksKt } from "./topics/content-blocks-kt";
@@ -40,6 +41,7 @@ export const contentBundle: ContentBundle = {
   mappings,
   contentBlocks: [
     ...contentBlocks,
+    ...contentBlocksPlNew,
     ...contentBlocksCm,
     ...contentBlocksQt,
     ...contentBlocksKt,

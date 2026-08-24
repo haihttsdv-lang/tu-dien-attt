@@ -5,23 +5,29 @@
 > tra cứu lại từ nguồn hạng A (xem URD §4.4) trước khi nhập nội dung có
 > tính quy phạm vào kho.
 
-## Văn bản pháp lý chưa có trong kho (chưa nhập `LegalDocument`)
+## Văn bản pháp lý — cập nhật 2026-08-24 sau vòng tra cứu độc lập thứ hai
 
-Các chủ đề liên quan dưới đây hiện **không có ContentBlock** vì chưa có căn
-cứ nguồn hạng A — tránh rủi ro suy đoán số hiệu/nội dung sai (URD §22, rủi ro
-"Rất cao"). Cần bổ sung sau khi tra cứu:
+Vòng tra cứu bổ sung (WebSearch, đối chiếu chéo vbpl.vn/Công báo Chính phủ/
+cổng bộ ngành) đã **mở khóa 6/9 chủ đề PL** còn thiếu — xem
+`src/content/documents/index.ts` (nhóm 2 trong file) và các
+`ContentBlock` tương ứng tại `src/content/topics/content-blocks-pl-new.ts`:
 
-| Chủ đề liên quan | Văn bản cần xác minh | Nguồn tra cứu ưu tiên |
+| Chủ đề | Văn bản đã nhập | Trạng thái | Còn thiếu gì |
+|---|---|---|---|
+| PL-01 | Luật ATTT mạng 86/2015/QH13 | `chua_xac_minh` (nghi ngờ hết hiệu lực một phần, chưa rõ điều khoản nào) | Xác minh trực tiếp trang lược đồ vbpl.vn |
+| PL-02 | Luật An ninh mạng 24/2018/QH14 | `con_hieu_luc` | — (đã xác minh tương đối chắc chắn) |
+| PL-04 | Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 (thay Nghị định 13/2023/NĐ-CP) | `con_hieu_luc` | Nghị định hướng dẫn thi hành mới chưa xác minh đủ để nhập số hiệu; nội dung chi tiết (quyền chủ thể, DPIA...) chưa trích dẫn |
+| PL-05 | Nghị định 85/2016/NĐ-CP | `con_hieu_luc` | Chưa kiểm tra văn bản sửa đổi/bổ sung sau 2016 |
+| PL-09 | Thông tư 13/2018/TT-NHNN | `con_hieu_luc` | Chưa kiểm tra thông tư sửa đổi/bổ sung sau 2018 |
+| PL-11 | Thông tư 20/2017/TT-BTTTT | `con_hieu_luc` | **Thời hạn báo cáo cụ thể VẪN chưa xác minh — vẫn là ưu tiên cao nhất, xem cảnh báo trong ContentBlock** |
+
+**Vẫn hoàn toàn chưa có căn cứ đủ tin cậy** (không có ContentBlock):
+
+| Chủ đề liên quan | Văn bản cần xác minh | Ghi chú vòng tra cứu 2026-08-24 |
 |---|---|---|
-| PL-01 | Luật An toàn thông tin mạng — số hiệu, năm, tình trạng sửa đổi | Cơ sở dữ liệu quốc gia về VBPL → Công báo Chính phủ |
-| PL-02 | Luật An ninh mạng và văn bản hướng dẫn | Cơ sở dữ liệu quốc gia về VBPL |
-| PL-03 | Yêu cầu lưu trữ dữ liệu trong nước | Nghị định hướng dẫn Luật An ninh mạng |
-| PL-04 | Nghị định/luật về bảo vệ dữ liệu cá nhân (lưu ý khả năng đã có văn bản mới thay thế) | Cơ sở dữ liệu quốc gia về VBPL |
-| PL-05 | Nghị định về an toàn HTTT theo cấp độ | Cơ sở dữ liệu quốc gia về VBPL |
-| PL-09 | Thông tư về hệ thống kiểm soát nội bộ NHTM | Cổng thông tin NHNN |
-| PL-10 | Quyết định của NHNN về ngưỡng xác thực sinh trắc học; TT 18/2024/TT-NHNN (có dấu hiệu liên quan, chưa xác minh chi tiết) | Cổng thông tin NHNN |
-| PL-11 | Quy định về nghĩa vụ báo cáo sự cố ATTT mạng quốc gia và thời hạn | **Ưu tiên xác minh cao nhất** — liên quan trực tiếp nghĩa vụ có thời hạn |
-| PL-12 | Chế tài xử phạt ATTT/dữ liệu cá nhân | Cơ sở dữ liệu quốc gia về VBPL |
+| PL-03 | Yêu cầu lưu trữ dữ liệu trong nước | Chưa tìm được nghị định hướng dẫn cụ thể đủ tin cậy trong vòng tra cứu này |
+| PL-10 | Quyết định/thông tư NHNN về ngưỡng xác thực sinh trắc học | Chưa tìm được; TT 18/2024/TT-NHNN vẫn chỉ là dấu hiệu chưa xác minh |
+| PL-12 | Chế tài xử phạt ATTT/dữ liệu cá nhân | Xác nhận **mới là DỰ THẢO** (Nghị định xử phạt vi phạm hành chính lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân), chưa ban hành chính thức tại thời điểm tra cứu — không nhập vào kho vì URD cấm để dự thảo lẫn vào tra cứu mặc định (FR-E14 áp dụng ngược: chưa đủ căn cứ để nhập ngay cả ở trạng thái "dự thảo") |
 
 ## Framework quốc tế — phiên bản chưa xác minh độc lập
 
@@ -68,11 +74,11 @@ sau của URD **cố ý chưa triển khai**, không phải thiếu sót:
   thư viện bằng chứng, cẩm nang sự cố) mới có ví dụ minh họa cho một vài
   chủ đề, chưa phủ toàn bộ 93 chủ đề.
 - Nội dung T3 (tham chiếu chuyên sâu — danh mục điều khoản đầy đủ, không
-  giới hạn độ dài) — chưa triển khai cho chủ đề nào. T1 (toàn bộ 84/93 chủ
-  đề có căn cứ nguồn) và T2 (giải thích đầy đủ 500–900 từ, cũng đủ 84/93)
-  đã hoàn thành theo đúng thứ tự URD §5.11 yêu cầu (T1 toàn bộ trước khi
-  làm T2 cho bất kỳ chủ đề nào). 9 chủ đề nhóm PL còn lại vẫn chưa có T1
-  lẫn T2 vì lý do đã nêu ở bảng đầu file này.
+  giới hạn độ dài) — chưa triển khai cho chủ đề nào.
+- T1 hiện phủ **90/93 chủ đề** (còn thiếu PL-03, PL-10, PL-12 — xem bảng
+  trên). T2 (giải thích đầy đủ 500–900 từ) mới phủ **84/93** — 6 chủ đề PL
+  vừa mở khóa (PL-01, 02, 04, 05, 09, 11) mới có T1, CHƯA có T2, đúng thứ tự
+  URD §5.11 (phủ rộng T1 trước khi đào sâu T2 cho chủ đề mới).
 - Sơ đồ minh họa (SVG tự vẽ) mới phủ khoảng 17 chủ đề có hình dạng khái
   niệm rõ ràng (quy trình vòng lặp, phân lớp, kiến trúc Zero Trust, RTO/RPO)
   — không phải mọi chủ đề đều có dạng hình ảnh tự nhiên nên phần lớn vẫn
