@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { CycleDiagram } from "../components/diagrams/CycleDiagram";
 import { LayeredDiagram } from "../components/diagrams/LayeredDiagram";
 import { ZeroTrustDiagram } from "../components/diagrams/ZeroTrustDiagram";
+import { RtoRpoDiagram } from "../components/diagrams/RtoRpoDiagram";
 
 /**
  * So do khai niem thu cong cho cac chu de "kinh dien" — day la hinh minh
@@ -108,7 +109,60 @@ const TIER_DEPTH = (
   />
 );
 
+const IAM_LIFECYCLE = (
+  <CycleDiagram
+    title="Vòng đời định danh (Joiner–Mover–Leaver)"
+    steps={[
+      { label: "Cấp phát", detail: "tạo tài khoản khi vào tổ chức/nhận vai trò mới" },
+      { label: "Xác thực", detail: "chứng minh danh tính mỗi lần truy cập" },
+      { label: "Cấp quyền", detail: "gán quyền theo vai trò, đặc quyền tối thiểu" },
+      { label: "Giám sát", detail: "theo dõi hoạt động, rà soát quyền định kỳ" },
+      { label: "Thu hồi", detail: "vô hiệu hóa khi nghỉ việc/đổi vai trò" }
+    ]}
+  />
+);
+
+const VULN_MGMT_CYCLE = (
+  <CycleDiagram
+    title="Vòng đời quản lý điểm yếu"
+    steps={[
+      { label: "Quét", detail: "phát hiện điểm yếu định kỳ/liên tục" },
+      { label: "Ưu tiên", detail: "theo mức nghiêm trọng và khả năng khai thác" },
+      { label: "Khắc phục", detail: "vá lỗi hoặc giảm thiểu tạm thời" },
+      { label: "Xác minh", detail: "quét lại để xác nhận đã khắc phục" }
+    ]}
+  />
+);
+
+const SOC_TIERS = (
+  <LayeredDiagram
+    title="Cấu trúc phân tuyến SOC"
+    layers={[
+      { label: "Tuyến 1 — Giám sát & lọc cảnh báo", detail: "tiếp nhận, phân loại ban đầu" },
+      { label: "Tuyến 2 — Điều tra chuyên sâu", detail: "phân tích sự cố, ứng phó" },
+      { label: "Tuyến 3 — Săn tìm mối đe dọa", detail: "kỹ thuật cao, chủ động tìm kiếm" }
+    ]}
+  />
+);
+
+const DATA_CLASSIFICATION = (
+  <LayeredDiagram
+    title="Ví dụ thang phân loại thông tin"
+    layers={[
+      { label: "Công khai", detail: "được phép công bố rộng rãi" },
+      { label: "Nội bộ", detail: "chỉ lưu hành trong tổ chức" },
+      { label: "Mật", detail: "truy cập hạn chế, cần được cấp quyền" },
+      { label: "Tối mật", detail: "kiểm soát nghiêm ngặt nhất" }
+    ]}
+  />
+);
+
 const registry: Record<string, ReactNode> = {
+  "KT-02": IAM_LIFECYCLE,
+  "KT-10": VULN_MGMT_CYCLE,
+  "VH-01": SOC_TIERS,
+  "KT-09": DATA_CLASSIFICATION,
+  "CC-04": <RtoRpoDiagram key="rto-rpo" />,
   "CM-01": PDCA,
   "QT-01": PDCA,
   "QT-03": RISK_CYCLE,

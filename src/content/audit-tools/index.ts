@@ -27,7 +27,12 @@ export const controlRequirements: ControlRequirement[] = [
   { id: "iso27002-8.13", frameworkId: "iso27002", clauseRef: "8.13", title: "Information backup", summary: "Bản sao lưu thông tin, phần mềm và hệ thống phải được duy trì và kiểm thử định kỳ theo chính sách sao lưu đã thống nhất.", sourceTier: "B" },
   { id: "nist-csf-pr-aa-05", frameworkId: "nist-csf", clauseRef: "PR.AA-05", title: "Access permissions and authorizations", summary: "Quyền và ủy quyền truy cập được quản lý, kết hợp nguyên tắc đặc quyền tối thiểu và phân tách nhiệm vụ.", sourceTier: "B" },
   { id: "nist-csf-de-ae", frameworkId: "nist-csf", clauseRef: "DE.AE", title: "Adverse Event Analysis", summary: "Các sự kiện bất thường được phân tích để phát hiện sự cố an toàn thông tin tiềm ẩn.", sourceTier: "B" },
-  { id: "nist-csf-rc-rp", frameworkId: "nist-csf", clauseRef: "RC.RP", title: "Incident Recovery Plan Execution", summary: "Kế hoạch khôi phục sau sự cố được thực thi để bảo đảm hoạt động và khôi phục dịch vụ.", sourceTier: "B" }
+  { id: "nist-csf-rc-rp", frameworkId: "nist-csf", clauseRef: "RC.RP", title: "Incident Recovery Plan Execution", summary: "Kế hoạch khôi phục sau sự cố được thực thi để bảo đảm hoạt động và khôi phục dịch vụ.", sourceTier: "B" },
+  { id: "iso27002-8.8", frameworkId: "iso27002", clauseRef: "8.8", title: "Management of technical vulnerabilities", summary: "Thông tin về điểm yếu kỹ thuật của hệ thống đang sử dụng phải được thu thập, đánh giá và xử lý kịp thời.", sourceTier: "B" },
+  { id: "nist-csf-id-ra-01", frameworkId: "nist-csf", clauseRef: "ID.RA-01", title: "Vulnerability identification", summary: "Điểm yếu của tài sản được nhận diện và ghi nhận đầy đủ.", sourceTier: "B" },
+  { id: "iso27002-5.9", frameworkId: "iso27002", clauseRef: "5.9", title: "Inventory of information and other associated assets", summary: "Tổ chức phải xây dựng và duy trì danh mục tài sản thông tin và tài sản liên quan.", sourceTier: "B" },
+  { id: "nist-csf-id-am-01", frameworkId: "nist-csf", clauseRef: "ID.AM-01", title: "Asset inventory", summary: "Phần cứng do tổ chức quản lý được kiểm kê đầy đủ.", sourceTier: "B" },
+  { id: "nist-csf-pr-ds-11", frameworkId: "nist-csf", clauseRef: "PR.DS-11", title: "Data backups", summary: "Bản sao lưu dữ liệu được tạo, bảo vệ, duy trì và kiểm thử định kỳ.", sourceTier: "B" }
 ];
 
 export const mappings: Mapping[] = [
@@ -49,6 +54,39 @@ export const mappings: Mapping[] = [
     equivalence: "co_lien_quan",
     rationale:
       "ISO 27002 5.24 tập trung vào hoạch định/chuẩn bị quy trình quản lý sự cố; NIST DE.AE tập trung vào bước phân tích sự kiện để phát hiện sự cố — hai yêu cầu bổ trợ nhau trong cùng vòng đời ứng phó sự cố nhưng không trùng phạm vi hoàn toàn.",
+    createdBy: "editor-demo",
+    approvedBy: "lead-demo",
+    approvedAt: "2026-08-24"
+  },
+  {
+    id: "map-vuln",
+    fromReqId: "iso27002-8.8",
+    toReqId: "nist-csf-id-ra-01",
+    equivalence: "tuong_duong_mot_phan",
+    rationale:
+      "Cả hai yêu cầu tổ chức nhận diện điểm yếu kỹ thuật một cách có hệ thống, nhưng ISO 27002 8.8 bao trùm cả bước đánh giá và xử lý, còn NIST ID.RA-01 chỉ tập trung vào bước nhận diện/ghi nhận (nằm trong hàm Identify) — bước xử lý được NIST CSF đặt ở các danh mục khác thuộc hàm Protect.",
+    createdBy: "editor-demo",
+    approvedBy: "lead-demo",
+    approvedAt: "2026-08-24"
+  },
+  {
+    id: "map-asset-inventory",
+    fromReqId: "iso27002-5.9",
+    toReqId: "nist-csf-id-am-01",
+    equivalence: "tuong_duong_mot_phan",
+    rationale:
+      "ISO 27002 5.9 yêu cầu danh mục đầy đủ mọi loại tài sản thông tin và tài sản liên quan (phần cứng, phần mềm, dữ liệu, dịch vụ...); NIST ID.AM-01 trong dữ liệu này chỉ nêu phạm vi phần cứng — cần đối chiếu thêm các danh mục con khác của ID.AM (phần mềm, dữ liệu) để có ánh xạ đầy đủ hơn.",
+    createdBy: "editor-demo",
+    approvedBy: "lead-demo",
+    approvedAt: "2026-08-24"
+  },
+  {
+    id: "map-backup",
+    fromReqId: "iso27002-8.13",
+    toReqId: "nist-csf-pr-ds-11",
+    equivalence: "tuong_duong_hoan_toan",
+    rationale:
+      "Cả hai yêu cầu đều tập trung trực tiếp vào cùng một hoạt động: tạo, bảo vệ, duy trì và kiểm thử định kỳ bản sao lưu dữ liệu/hệ thống — phạm vi trùng khớp gần như hoàn toàn.",
     createdBy: "editor-demo",
     approvedBy: "lead-demo",
     approvedAt: "2026-08-24"
