@@ -67,8 +67,16 @@ sau của URD **cố ý chưa triển khai**, không phải thiếu sót:
 - Công cụ tác nghiệp kiểm tra (chương trình kiểm toán, ngân hàng câu hỏi,
   thư viện bằng chứng, cẩm nang sự cố) mới có ví dụ minh họa cho một vài
   chủ đề, chưa phủ toàn bộ 93 chủ đề.
-- Nội dung T2/T3 (giải thích đầy đủ / tham chiếu chuyên sâu) — bản build
-  này ưu tiên phủ rộng T1 cho toàn bộ 93 chủ đề trước (đúng nguyên tắc URD
-  §5.11: "kho phủ rộng ở mức nông có giá trị hơn kho sâu nhưng khuyết mảng").
+- Nội dung T3 (tham chiếu chuyên sâu — danh mục điều khoản đầy đủ, không
+  giới hạn độ dài) — chưa triển khai cho chủ đề nào. T1 (toàn bộ 84/93 chủ
+  đề có căn cứ nguồn) và T2 (giải thích đầy đủ 500–900 từ, cũng đủ 84/93)
+  đã hoàn thành theo đúng thứ tự URD §5.11 yêu cầu (T1 toàn bộ trước khi
+  làm T2 cho bất kỳ chủ đề nào). 9 chủ đề nhóm PL còn lại vẫn chưa có T1
+  lẫn T2 vì lý do đã nêu ở bảng đầu file này.
+- Sơ đồ minh họa (SVG tự vẽ) mới phủ khoảng 17 chủ đề có hình dạng khái
+  niệm rõ ràng (quy trình vòng lặp, phân lớp, kiến trúc Zero Trust, RTO/RPO)
+  — không phải mọi chủ đề đều có dạng hình ảnh tự nhiên nên phần lớn vẫn
+  chỉ có nội dung chữ. Sơ đồ quan hệ chủ đề/văn bản (FR-K03, FR-S02) áp
+  dụng tự động cho MỌI chủ đề/văn bản có quan hệ khai báo trong dữ liệu.
 - Kiểm thử xâm nhập, thẩm định ATTT nội bộ, xác định cấp độ hệ thống
   (FR-P15, P17, P18) — không áp dụng cho công cụ tham khảo cá nhân.

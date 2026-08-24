@@ -16,6 +16,10 @@ export function GroupListPage() {
     () => new Set(bundle.contentBlocks.map((c) => c.topicId)),
     [bundle.contentBlocks]
   );
+  const topicIdsWithT2 = useMemo(
+    () => new Set(bundle.contentBlocks.filter((c) => c.tier === "T2").map((c) => c.topicId)),
+    [bundle.contentBlocks]
+  );
 
   const topics = useMemo(() => {
     return bundle.topics.filter((t) => {
@@ -66,6 +70,7 @@ export function GroupListPage() {
 
       {topics.map((t) => {
         const hasContent = topicIdsWithContent.has(t.id);
+        const hasT2 = topicIdsWithT2.has(t.id);
         return (
           <Link key={t.id} to={`/chu-de/${t.id}`} className="card card-link">
             <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
@@ -75,11 +80,18 @@ export function GroupListPage() {
                 </strong>
                 <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>{t.titleEn}</div>
               </div>
-              {!hasContent && (
-                <span className="status-badge" style={{ background: "var(--info-bg)", color: "var(--info-fg)", whiteSpace: "nowrap" }}>
-                  Chưa có T1
-                </span>
-              )}
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "flex-end" }}>
+                {!hasContent && (
+                  <span className="status-badge" style={{ background: "var(--info-bg)", color: "var(--info-fg)", whiteSpace: "nowrap" }}>
+                    Chưa có T1
+                  </span>
+                )}
+                {hasT2 && (
+                  <span className="status-badge" style={{ background: "var(--ok-bg)", color: "var(--ok-fg)", whiteSpace: "nowrap" }}>
+                    T2
+                  </span>
+                )}
+              </div>
             </div>
           </Link>
         );

@@ -10,6 +10,12 @@ export function AboutPage() {
   const overdueCount = bundle.legalDocuments.filter((d) =>
     isReviewOverdue(d, REVIEW_CYCLE_DAYS)
   ).length;
+  const topicsWithT1 = new Set(
+    bundle.contentBlocks.filter((c) => c.tier === "T1").map((c) => c.topicId)
+  ).size;
+  const topicsWithT2 = new Set(
+    bundle.contentBlocks.filter((c) => c.tier === "T2").map((c) => c.topicId)
+  ).size;
 
   return (
     <div>
@@ -41,7 +47,10 @@ export function AboutPage() {
       <div className="card">
         <h2>Phạm vi đã triển khai</h2>
         <ul>
-          <li>Tra cứu {bundle.topics.length} chủ đề theo 9 nhóm, tầng T1 (tra cứu nhanh)</li>
+          <li>
+            Tra cứu {bundle.topics.length} chủ đề theo 9 nhóm — {topicsWithT1} chủ đề có T1 (tra cứu
+            nhanh), {topicsWithT2} chủ đề có thêm T2 (giải thích đầy đủ)
+          </li>
           <li>Quản lý vòng đời hiệu lực văn bản, gồm xem theo thời điểm trong quá khứ</li>
           <li>Tìm kiếm tiếng Việt có dấu / không dấu / tiếng Anh, hoạt động ngoại tuyến</li>
           <li>Ánh xạ chéo minh họa giữa các khung kiểm soát quốc tế</li>

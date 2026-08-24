@@ -39,6 +39,24 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    // Canh bao mac dinh (500kB) khong phu hop voi ung dung du lieu tham
+    // chieu offline-first: toan bo noi dung phai co san ngay lan dau de
+    // tim kiem toan van hoat dong day du khi mat mang (FR-Q01, FR-Q07).
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          // Tach du lieu noi dung rieng: it thay doi hon ma giao dien,
+          // giup trinh duyet giu cache chunk nay qua cac lan cap nhat UI.
+          if (id.includes("/src/content/")) return "content-data";
+          if (id.includes("node_modules/react") || id.includes("node_modules/scheduler")) {
+            return "vendor-react";
+          }
+        }
+      }
+    }
+  },
   test: {
     environment: "jsdom",
     globals: true,

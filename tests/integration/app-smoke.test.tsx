@@ -8,9 +8,11 @@ import App from "../../src/ui/App";
  * (FR-T04) tren trang chu.
  */
 describe("App smoke test", () => {
-  it("render trang chu khong loi va co tuyen bo mien tru", () => {
+  it("render trang chu khong loi va co tuyen bo mien tru", async () => {
     render(<App />);
-    expect(screen.getByRole("heading", { level: 1, name: /Bách khoa ATTT Ngân hàng/i })).toBeTruthy();
-    expect(screen.getByText(/Miễn trừ trách nhiệm/i)).toBeTruthy();
+    // HomePage duoc lazy-load (React.lazy/Suspense) — cho chunk tai xong
+    // truoc khi kiem tra noi dung.
+    expect(await screen.findByRole("heading", { level: 1, name: /Bách khoa ATTT Ngân hàng/i })).toBeTruthy();
+    expect(await screen.findByText(/Miễn trừ trách nhiệm/i)).toBeTruthy();
   });
 });

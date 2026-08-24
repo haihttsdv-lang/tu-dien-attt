@@ -11,9 +11,14 @@ import { contentBlocksCc } from "./topics/content-blocks-cc";
 import { contentBlocksMn } from "./topics/content-blocks-mn";
 import { contentBlocksT2 } from "./topics/content-blocks-t2";
 import { contentBlocksT2Pl } from "./topics/content-blocks-t2-pl";
+import { contentBlocksT2Cm } from "./topics/content-blocks-t2-cm";
+import { contentBlocksT2Qt } from "./topics/content-blocks-t2-qt";
 import { contentBlocksT2Kt } from "./topics/content-blocks-t2-kt";
 import { contentBlocksT2Nh } from "./topics/content-blocks-t2-nh";
 import { contentBlocksT2Vh } from "./topics/content-blocks-t2-vh";
+import { contentBlocksT2Kg } from "./topics/content-blocks-t2-kg";
+import { contentBlocksT2Cc } from "./topics/content-blocks-t2-cc";
+import { contentBlocksT2Mn } from "./topics/content-blocks-t2-mn";
 import { legalDocuments, documentArticles, documentRelations } from "./documents";
 import { frameworks } from "./frameworks";
 import { terms } from "./terms";
@@ -45,9 +50,14 @@ export const contentBundle: ContentBundle = {
     ...contentBlocksMn,
     ...contentBlocksT2,
     ...contentBlocksT2Pl,
+    ...contentBlocksT2Cm,
+    ...contentBlocksT2Qt,
     ...contentBlocksT2Kt,
     ...contentBlocksT2Nh,
-    ...contentBlocksT2Vh
+    ...contentBlocksT2Vh,
+    ...contentBlocksT2Kg,
+    ...contentBlocksT2Cc,
+    ...contentBlocksT2Mn
   ],
   terms,
   auditPrograms,
