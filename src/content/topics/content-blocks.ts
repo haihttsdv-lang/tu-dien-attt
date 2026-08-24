@@ -41,8 +41,11 @@ export const contentBlocks: ContentBlock[] = [
     tier: "T1",
     kind: "dien_giai",
     body:
-      "Thông tư 50/2024/TT-NHNN (ban hành 31/10/2024) quy định về an toàn, bảo mật cho việc cung cấp dịch vụ trực tuyến ngành Ngân hàng, hiệu lực từ 01/01/2025 (một số điều khoản — điểm b khoản 1 Điều 4; điểm d khoản 9 Điều 7; khoản 3, 4 Điều 8 — hiệu lực từ 01/07/2025). Thông tư thay thế Thông tư 35/2016/TT-NHNN và Thông tư 35/2018/TT-NHNN, đồng thời bãi bỏ Điều 25 của Thông tư 09/2020/TT-NHNN. CHƯA XÁC MINH: có thông tin về một dự thảo thông tư thay thế đang lấy ý kiến tại thời điểm biên soạn — cần kiểm tra tình trạng ban hành trước khi dùng làm căn cứ.",
-    sources: [{ type: "legal_document", refId: "tt-50-2024-nhnn" }],
+      "Thông tư 50/2024/TT-NHNN (ban hành 31/10/2024) quy định về an toàn, bảo mật cho việc cung cấp dịch vụ trực tuyến ngành Ngân hàng, hiệu lực từ 01/01/2025 (một số điều khoản — điểm b khoản 1 Điều 4; điểm d khoản 9 Điều 7; khoản 3, 4 Điều 8 — hiệu lực từ 01/07/2025). Thông tư thay thế Thông tư 35/2016/TT-NHNN và Thông tư 35/2018/TT-NHNN, đồng thời bãi bỏ Điều 25 của Thông tư 09/2020/TT-NHNN. CẬP NHẬT: Thông tư này ĐÃ ĐƯỢC SỬA ĐỔI, BỔ SUNG bởi Thông tư 77/2025/TT-NHNN (31/12/2025, hiệu lực 01/03/2026, riêng Điều 3/10 hiệu lực 01/07/2026) — mở rộng phạm vi sang mobile money, thêm đối tượng áp dụng, thay Phụ lục 01/02/04. TT50/2024 vẫn là văn bản gốc còn hiệu lực, chỉ một phần được cập nhật — xem PL-10 để biết chi tiết liên quan ngưỡng xác thực sinh trắc học.",
+    sources: [
+      { type: "legal_document", refId: "tt-50-2024-nhnn" },
+      { type: "legal_document", refId: "tt-77-2025-nhnn" }
+    ],
     classification: "cong_khai",
     status: "da_duyet",
     version: 1

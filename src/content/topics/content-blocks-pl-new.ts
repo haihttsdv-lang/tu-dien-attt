@@ -1,12 +1,16 @@
 /**
  * ContentBlock T1 cho 8 chu de PL moi duoc mo khoa ngay 2026-08-24 sau hai
  * vong tra cuu doc lap tim duoc can cu nguon (xem
- * src/content/documents/index.ts). PL-01 van o trang thai than trong
- * (chua_xac_minh) vi chi tiet hieu luc mot phan chua ro. PL-10 dua ra so
- * lieu nguong cu the (10/20 trieu dong) da duoc nhieu nguon doc lap xac
- * nhan nhat quan nhung van kem canh bao ro rang phai doi chieu lai truoc
- * khi dung cho ho so chinh thuc — xem verificationNote cua qd-2345-nhnn.
- * Khong dua PL-12 vao day — van chi la du thao, chua ban hanh.
+ * src/content/documents/index.ts). PL-10 dua ra so lieu nguong cu the
+ * (10/20 trieu dong) da duoc nhieu nguon doc lap xac nhan nhat quan nhung
+ * van kem canh bao ro rang phai doi chieu lai truoc khi dung cho ho so
+ * chinh thuc. Khong dua PL-12 vao day — van chi la du thao, chua ban hanh.
+ *
+ * CAP NHAT 2026-08-24 lan 2 (theo phan hoi nguoi dung): PL-01, PL-02 viet
+ * lai hoan toan sau khi xac nhan Luat An ninh mang 116/2025/QH15 da hop
+ * nhat va thay the CA HAI luat cu (86/2015 va 24/2018), hieu luc 01/07/2026
+ * (da qua). PL-10 viet lai vi QD 2345/QD-NHNN da duoc thay bang TT50/2024
+ * (nay da duoc TT77/2025 sua doi bo sung).
  */
 import type { ContentBlock } from "../../data/schema/models";
 
@@ -17,8 +21,11 @@ export const contentBlocksPlNew: ContentBlock[] = [
     tier: "T1",
     kind: "dien_giai",
     body:
-      "Luật An toàn thông tin mạng (số 86/2015/QH13, thông qua 19/11/2015, hiệu lực 01/07/2016) là luật nền quy định hoạt động an toàn thông tin mạng, quyền và trách nhiệm của cơ quan, tổ chức, cá nhân, mật mã dân sự, tiêu chuẩn/quy chuẩn về an toàn thông tin mạng. CẢNH BÁO: có dấu hiệu văn bản này hiện ở trạng thái hết hiệu lực một phần, nhưng CHƯA XÁC MINH được cụ thể điều khoản nào và văn bản nào đã bãi bỏ/sửa đổi — không dùng làm căn cứ trích dẫn điều khoản cụ thể cho tới khi xác minh lại trực tiếp qua vbpl.vn.",
-    sources: [{ type: "legal_document", refId: "luat-86-2015-qh13" }],
+      "QUAN TRỌNG: Luật An toàn thông tin mạng (86/2015/QH13) ĐÃ HẾT HIỆU LỰC — bị thay thế bởi Luật An ninh mạng 116/2025/QH15 (hợp nhất với Luật An ninh mạng 2018 cũ), hiệu lực từ 01/07/2026. Luật 86/2015 (ban hành 19/11/2015) từng là luật nền quy định hoạt động an toàn thông tin mạng, mật mã dân sự, tiêu chuẩn/quy chuẩn kỹ thuật — nội dung này nay do Luật 116/2025 điều chỉnh. Luật mới có điều khoản chuyển tiếp: hệ thống đã xác định cấp độ theo luật cũ giữ nguyên cấp độ, phải đáp ứng điều kiện mới trong 12 tháng kể từ ngày luật mới có hiệu lực. Xem Luật 116/2025/QH15 tại chủ đề PL-02 để biết chi tiết khung hiện hành.",
+    sources: [
+      { type: "legal_document", refId: "luat-86-2015-qh13" },
+      { type: "legal_document", refId: "luat-116-2025-qh15" }
+    ],
     classification: "cong_khai",
     status: "da_duyet",
     version: 1
@@ -29,8 +36,8 @@ export const contentBlocksPlNew: ContentBlock[] = [
     tier: "T1",
     kind: "dien_giai",
     body:
-      "Luật An ninh mạng (số 24/2018/QH14, thông qua 12/6/2018, hiệu lực 01/01/2019) quy định hoạt động bảo vệ an ninh quốc gia và bảo đảm trật tự, an toàn xã hội trên không gian mạng, trách nhiệm của cơ quan, tổ chức, cá nhân liên quan — bao gồm các quy định về phòng ngừa, xử lý hành vi xâm phạm an ninh mạng, bảo vệ hệ thống thông tin quan trọng về an ninh quốc gia, và yêu cầu đối với doanh nghiệp cung cấp dịch vụ trên không gian mạng. Khác biệt với Luật An toàn thông tin mạng (PL-01) về trọng tâm: Luật An ninh mạng nghiêng về khía cạnh an ninh quốc gia/trật tự xã hội, trong khi Luật An toàn thông tin mạng nghiêng về khía cạnh kỹ thuật bảo đảm an toàn hệ thống.",
-    sources: [{ type: "legal_document", refId: "luat-24-2018-qh14" }],
+      "Luật An ninh mạng hiện hành là số 116/2025/QH15 (hiệu lực 01/07/2026), thay thế đồng thời Luật An ninh mạng cũ 24/2018/QH14 VÀ Luật An toàn thông tin mạng 86/2015/QH13 (hợp nhất hai luật thành một khung thống nhất — xem PL-01). Luật điều chỉnh hoạt động bảo vệ an ninh quốc gia, trật tự an toàn xã hội trên không gian mạng lẫn khía cạnh kỹ thuật an toàn thông tin mạng trước đây tách riêng. Có điều khoản chuyển tiếp 12 tháng cho hệ thống/sản phẩm/dịch vụ đã tuân thủ theo luật cũ. CẢNH BÁO: kho tri thức này mới xác nhận số hiệu, ngày hiệu lực và điều khoản chuyển tiếp tổng quát — CHƯA trích dẫn chi tiết các quy định cụ thể khác của luật mới (thẩm quyền, chế tài, hệ thống thông tin quan trọng...), cần tra cứu nguyên văn trước khi áp dụng.",
+    sources: [{ type: "legal_document", refId: "luat-116-2025-qh15" }],
     classification: "cong_khai",
     status: "da_duyet",
     version: 1
@@ -104,8 +111,11 @@ export const contentBlocksPlNew: ContentBlock[] = [
     tier: "T1",
     kind: "dien_giai",
     body:
-      "Quyết định 2345/QĐ-NHNN (18/12/2023, hiệu lực 01/07/2024) yêu cầu giải pháp an toàn, bảo mật trong thanh toán trực tuyến và thẻ ngân hàng, đặt ngưỡng bắt buộc xác thực sinh trắc học (khuôn mặt/vân tay) cho chuyển tiền/nạp ví điện tử. Nhiều nguồn tham khảo nhắc lại nhất quán: trên 10 triệu đồng/giao dịch phải xác thực sinh trắc học; dưới 10 triệu đồng và tổng trong ngày ≤20 triệu đồng có thể chỉ cần OTP. CẢNH BÁO: đây là văn bản hành chính cá biệt, không phải Luật/Nghị định/Thông tư công bố rộng rãi — hai con số ngưỡng CHƯA đối chiếu trực tiếp với văn bản gốc. Bắt buộc xác minh lại trước khi dùng cho hồ sơ chính thức, vì có thể đã được sửa đổi.",
-    sources: [{ type: "legal_document", refId: "qd-2345-nhnn" }],
+      "Ngưỡng xác thực sinh trắc học cho giao dịch ngân hàng trực tuyến hiện được quy định tại Thông tư 50/2024/TT-NHNN (hiệu lực 01/01/2025), ĐÃ ĐƯỢC SỬA ĐỔI, BỔ SUNG bởi Thông tư 77/2025/TT-NHNN (hiệu lực 01/03/2026, riêng Điều 3/10 hiệu lực 01/07/2026 cho đơn vị phục vụ cả khách hàng cá nhân và tổ chức) — KHÔNG dùng Quyết định 2345/QĐ-NHNN (2023) nữa vì nội dung đã được quy định lại tại TT50/2024. Ngưỡng cá nhân được nhiều nguồn nhắc lại nhất quán: trên 10 triệu đồng/giao dịch phải xác thực sinh trắc học; dưới 10 triệu đồng và tổng trong ngày ≤20 triệu đồng có thể chỉ cần OTP. TT77/2025 bổ sung thêm yêu cầu xác thực khớp sinh trắc học cho giao dịch của doanh nghiệp/hộ kinh doanh (chi tiết ngưỡng CHƯA xác minh). Các con số trên chưa đối chiếu trực tiếp văn bản gốc — bắt buộc xác minh lại trước khi dùng chính thức.",
+    sources: [
+      { type: "legal_document", refId: "tt-50-2024-nhnn" },
+      { type: "legal_document", refId: "tt-77-2025-nhnn" }
+    ],
     classification: "cong_khai",
     status: "da_duyet",
     version: 1

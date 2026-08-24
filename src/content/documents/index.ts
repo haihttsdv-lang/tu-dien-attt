@@ -58,7 +58,7 @@ export const legalDocuments: LegalDocument[] = [
     lastVerifiedAt: V,
     verifiedBy: VERIFIED_BY,
     verificationNote:
-      "Một số điều khoản (điểm b khoản 1 Điều 4; điểm d khoản 9 Điều 7; khoản 3, 4 Điều 8) có hiệu lực riêng từ 01/07/2025. Thay thế TT 35/2016/TT-NHNN và TT 35/2018/TT-NHNN; bãi bỏ Điều 25 TT 09/2020/TT-NHNN. Có thông tin về dự thảo thông tư thay thế đang lấy ý kiến — CHƯA XÁC MINH tình trạng ban hành."
+      "Một số điều khoản (điểm b khoản 1 Điều 4; điểm d khoản 9 Điều 7; khoản 3, 4 Điều 8) có hiệu lực riêng từ 01/07/2025. Thay thế TT 35/2016/TT-NHNN và TT 35/2018/TT-NHNN; bãi bỏ Điều 25 TT 09/2020/TT-NHNN. CẬP NHẬT 2026-08-24 (theo phản hồi người dùng): dự thảo thông tư sửa đổi nêu ở lần xác minh trước đã được ban hành chính thức là Thông tư 77/2025/TT-NHNN (31/12/2025) — SỬA ĐỔI, BỔ SUNG (không thay thế toàn văn) Thông tư này, hiệu lực từ 01/03/2026 (riêng Điều 3, Điều 10 hiệu lực 01/07/2026 cho đơn vị cung cấp dịch vụ thanh toán trực tuyến cho cả khách hàng cá nhân và tổ chức). TT50/2024 VẪN CÒN HIỆU LỰC làm văn bản gốc, chỉ một số điều/phụ lục được cập nhật bởi TT77/2025 — xem quan hệ 'sửa đổi' trong DocumentRelation."
   },
   {
     id: "tcvn-11930",
@@ -89,30 +89,44 @@ export const legalDocuments: LegalDocument[] = [
   {
     id: "luat-86-2015-qh13",
     docNumber: "86/2015/QH13",
-    title: "Luật An toàn thông tin mạng",
+    title: "Luật An toàn thông tin mạng (đã hết hiệu lực)",
     issuer: "Quốc hội",
     issuedDate: "2015-11-19",
     effectiveFrom: "2016-07-01",
-    status: "chua_xac_minh",
+    status: "het_hieu_luc",
     sourceTier: "A",
     lastVerifiedAt: V,
     verifiedBy: VERIFIED_BY,
     verificationNote:
-      "Số hiệu/ngày ban hành/hiệu lực xác nhận qua vbpl.vn, vanban.chinhphu.vn, phapluat.gov.vn (đối chiếu chéo nhất quán). Có dấu hiệu văn bản này hiện 'hết hiệu lực một phần' (theo mô tả gián tiếp trên vbpl.vn) nhưng CHƯA XÁC MINH được cụ thể điều khoản nào và bị bãi bỏ bởi văn bản nào — do đó trạng thái tạm để chua_xac_minh thay vì khẳng định con_hieu_luc hay hieu_luc_mot_phan. Cần mở trực tiếp trang lược đồ vbpl.vn để xác nhận trước khi dùng làm căn cứ."
+      "CẬP NHẬT 2026-08-24 (theo phản hồi người dùng + tra cứu xác minh lại): bị thay thế bởi Luật An ninh mạng 116/2025/QH15 (hợp nhất Luật ATTT mạng 2015 và Luật An ninh mạng 2018), hiệu lực từ 01/07/2026. Xác nhận qua thuvienphapluat (bài phân tích dẫn nội dung điều khoản thi hành) — khuyến nghị đối chiếu lại trực tiếp điều khoản thi hành trên vbpl.vn trước khi dùng làm căn cứ chính thức vì chưa tự đọc nguyên văn."
   },
   {
     id: "luat-24-2018-qh14",
     docNumber: "24/2018/QH14",
-    title: "Luật An ninh mạng",
+    title: "Luật An ninh mạng (đã hết hiệu lực)",
     issuer: "Quốc hội",
     issuedDate: "2018-06-12",
     effectiveFrom: "2019-01-01",
+    status: "het_hieu_luc",
+    sourceTier: "A",
+    lastVerifiedAt: V,
+    verifiedBy: VERIFIED_BY,
+    verificationNote:
+      "CẬP NHẬT 2026-08-24 (theo phản hồi người dùng + tra cứu xác minh lại): hết hiệu lực kể từ 01/07/2026 khi Luật An ninh mạng 116/2025/QH15 có hiệu lực thi hành (điều khoản thi hành nêu rõ 'Luật An ninh mạng số 24/2018/QH14 hết hiệu lực kể từ ngày Luật này có hiệu lực thi hành'). Xác nhận ban đầu qua vbpl.vn, Bộ Công an, tulieuvankien.dangcongsan.vn."
+  },
+  {
+    id: "luat-116-2025-qh15",
+    docNumber: "116/2025/QH15",
+    title: "Luật An ninh mạng",
+    issuer: "Quốc hội",
+    issuedDate: "2025-12-10",
+    effectiveFrom: "2026-07-01",
     status: "con_hieu_luc",
     sourceTier: "A",
     lastVerifiedAt: V,
     verifiedBy: VERIFIED_BY,
     verificationNote:
-      "Xác nhận qua vbpl.vn, Bộ Công an (bocongan.gov.vn), tulieuvankien.dangcongsan.vn — đối chiếu chéo nhất quán."
+      "Bổ sung 2026-08-24 theo yêu cầu người dùng. Hợp nhất, kế thừa các quy định còn phù hợp của Luật An ninh mạng 24/2018/QH14 VÀ Luật An toàn thông tin mạng 86/2015/QH13 — thay thế cả hai. Có điều khoản chuyển tiếp: hệ thống đã được xác định cấp độ theo Luật 86/2015 giữ nguyên cấp độ đã xác định, phải đáp ứng điều kiện/tiêu chuẩn/biện pháp bảo vệ theo luật mới trong vòng 12 tháng kể từ ngày luật mới có hiệu lực; sản phẩm/dịch vụ/giải pháp/phương tiện kỹ thuật bảo đảm an toàn TTM theo luật cũ đã đưa vào sử dụng trước ngày luật mới có hiệu lực được tiếp tục sử dụng, phải tuân thủ điều kiện an ninh mạng theo luật mới trong vòng 12 tháng. Xác nhận qua thuvienphapluat (bài phân tích + toàn văn), baochinhphu.vn (Quốc hội thông qua). Ngày ban hành 10/12/2025 lấy từ một nguồn duy nhất — nên đối chiếu lại chính xác ngày này qua vbpl.vn trước khi dùng cho hồ sơ chính thức. CHƯA trích dẫn nội dung điều khoản chi tiết nào khác của luật mới ngoài các điều khoản chuyển tiếp nêu trên."
   },
   {
     id: "luat-91-2025-qh15",
@@ -158,16 +172,30 @@ export const legalDocuments: LegalDocument[] = [
   {
     id: "qd-2345-nhnn",
     docNumber: "2345/QĐ-NHNN",
-    title: "Triển khai các giải pháp an toàn, bảo mật trong thanh toán trực tuyến và thanh toán thẻ ngân hàng",
+    title: "Triển khai các giải pháp an toàn, bảo mật trong thanh toán trực tuyến và thanh toán thẻ ngân hàng (đã hết hiệu lực)",
     issuer: "Ngân hàng Nhà nước Việt Nam",
     issuedDate: "2023-12-18",
     effectiveFrom: "2024-07-01",
-    status: "con_hieu_luc",
+    status: "het_hieu_luc",
     sourceTier: "B",
     lastVerifiedAt: V,
     verifiedBy: VERIFIED_BY,
     verificationNote:
-      "Là QUYẾT ĐỊNH (văn bản hành chính cá biệt của NHNN), không phải văn bản quy phạm pháp luật công bố trên Công báo theo cách một Thông tư/Nghị định được công bố — do đó xếp sourceTier B dù được nhiều nguồn đối chiếu nhất quán (cổng chính sách Chính phủ, chi nhánh NHNN địa phương, Hiệp hội Ngân hàng Việt Nam). Ngưỡng xác thực sinh trắc học nêu trong ContentBlock PL-10 (>10 triệu đồng/giao dịch; OTP nếu <10 triệu và tổng trong ngày ≤20 triệu đồng) được nhiều nguồn độc lập nhắc lại nhất quán nhưng CHƯA được đối chiếu trực tiếp với văn bản gốc — bắt buộc xác minh lại trước khi dùng cho hồ sơ kiểm tra chính thức, đặc biệt vì đây là quyết định hành chính có thể đã được sửa đổi/thay thế mà không tạo tiếng vang truyền thông lớn như lần ban hành đầu."
+      "CẬP NHẬT 2026-08-24 (theo phản hồi người dùng): nội dung của Quyết định này đã được NHNN quy định lại tại Thông tư 50/2024/TT-NHNN (hiệu lực 01/01/2025) — coi như đã được thay thế trên thực tế. Là QUYẾT ĐỊNH (văn bản hành chính cá biệt), không công bố trên Công báo như Thông tư/Nghị định nên sourceTier vẫn B — CHƯA xác nhận được một văn bản bãi bỏ chính thức riêng cho Quyết định này (có thể về mặt hình thức vẫn tồn tại nhưng nội dung đã lỗi thời). KHÔNG dùng văn bản này làm căn cứ nữa — tra cứu Thông tư 50/2024/TT-NHNN (đã được Thông tư 77/2025/TT-NHNN sửa đổi, bổ sung) thay thế."
+  },
+  {
+    id: "tt-77-2025-nhnn",
+    docNumber: "77/2025/TT-NHNN",
+    title: "Sửa đổi, bổ sung một số điều của Thông tư 50/2024/TT-NHNN",
+    issuer: "Ngân hàng Nhà nước Việt Nam",
+    issuedDate: "2025-12-31",
+    effectiveFrom: "2026-03-01",
+    status: "con_hieu_luc",
+    sourceTier: "A",
+    lastVerifiedAt: V,
+    verifiedBy: VERIFIED_BY,
+    verificationNote:
+      "Bổ sung 2026-08-24 theo yêu cầu người dùng. Xác nhận qua congbao.chinhphu.vn và vanban.chinhphu.vn (Công báo Chính phủ — nguồn hạng A rõ ràng). Mở rộng phạm vi áp dụng TT50/2024 sang hoạt động cung ứng dịch vụ mobile money; bổ sung đối tượng áp dụng (tổ chức cung ứng dịch vụ trung gian thanh toán, mobile money, công ty thông tin tín dụng); thay thế Phụ lục 01, 02, 04 của TT50/2024 bằng bản cập nhật; bổ sung yêu cầu xác thực khớp thông tin sinh trắc học cho giao dịch của doanh nghiệp/hộ kinh doanh, riêng Điều 3 và Điều 10 hiệu lực từ 01/07/2026 (áp dụng cho đơn vị cung cấp dịch vụ thanh toán trực tuyến cho cả khách hàng cá nhân và tổ chức). Đây là SỬA ĐỔI, KHÔNG PHẢI thay thế toàn văn TT50/2024. CHƯA trích dẫn chi tiết nội dung phụ lục mới hay ngưỡng cụ thể áp dụng cho doanh nghiệp — cần đọc nguyên văn trước khi tư vấn."
   },
   {
     id: "nd-85-2016-cp",
@@ -283,6 +311,18 @@ export const documentArticles: DocumentArticle[] = [
     articleRef: "khoản 3, 4 Điều 8",
     title: "Điều khoản có mốc hiệu lực riêng (01/07/2025)",
     effectiveFrom: "2025-07-01"
+  },
+  {
+    documentId: "tt-50-2024-nhnn",
+    articleRef: "Điều 3",
+    title: "Điều khoản được sửa đổi bởi TT77/2025/TT-NHNN — hiệu lực riêng cho đơn vị cung cấp dịch vụ thanh toán trực tuyến cho cả khách hàng cá nhân và tổ chức",
+    effectiveFrom: "2026-07-01"
+  },
+  {
+    documentId: "tt-50-2024-nhnn",
+    articleRef: "Điều 10",
+    title: "Điều khoản được sửa đổi bởi TT77/2025/TT-NHNN — hiệu lực riêng cho đơn vị cung cấp dịch vụ thanh toán trực tuyến cho cả khách hàng cá nhân và tổ chức",
+    effectiveFrom: "2026-07-01"
   }
 ];
 
@@ -303,5 +343,29 @@ export const documentRelations: DocumentRelation[] = [
     relationType: "thay_the",
     scope: "Toàn bộ khung bảo vệ dữ liệu cá nhân — Luật thay thế nghị định (nâng cấp hiệu lực pháp lý), kèm nghị định hướng dẫn thi hành mới"
   },
-  { fromDocId: "nd-85-2016-cp", toDocId: "tcvn-11930", relationType: "huong_dan" }
+  { fromDocId: "nd-85-2016-cp", toDocId: "tcvn-11930", relationType: "huong_dan" },
+  {
+    fromDocId: "luat-116-2025-qh15",
+    toDocId: "luat-24-2018-qh14",
+    relationType: "thay_the",
+    scope: "Hợp nhất — Luật mới thay thế toàn bộ Luật An ninh mạng 2018"
+  },
+  {
+    fromDocId: "luat-116-2025-qh15",
+    toDocId: "luat-86-2015-qh13",
+    relationType: "thay_the",
+    scope: "Hợp nhất — Luật mới thay thế toàn bộ Luật An toàn thông tin mạng 2015"
+  },
+  {
+    fromDocId: "tt-77-2025-nhnn",
+    toDocId: "tt-50-2024-nhnn",
+    relationType: "sua_doi",
+    scope: "Sửa đổi, bổ sung — KHÔNG thay thế toàn văn; TT50/2024 vẫn là văn bản gốc còn hiệu lực"
+  },
+  {
+    fromDocId: "tt-50-2024-nhnn",
+    toDocId: "qd-2345-nhnn",
+    relationType: "thay_the",
+    scope: "Nội dung của QĐ 2345 được quy định lại tại TT50/2024 — chưa xác nhận văn bản bãi bỏ chính thức riêng"
+  }
 ];

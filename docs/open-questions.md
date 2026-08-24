@@ -5,28 +5,36 @@
 > tra cứu lại từ nguồn hạng A (xem URD §4.4) trước khi nhập nội dung có
 > tính quy phạm vào kho.
 
-## Văn bản pháp lý — cập nhật 2026-08-24 sau vòng tra cứu độc lập thứ hai
+## Văn bản pháp lý — lịch sử các vòng tra cứu 2026-08-24
 
-Vòng tra cứu bổ sung (WebSearch, đối chiếu chéo vbpl.vn/Công báo Chính phủ/
-cổng bộ ngành) đã **mở khóa 6/9 chủ đề PL** còn thiếu — xem
-`src/content/documents/index.ts` (nhóm 2 trong file) và các
-`ContentBlock` tương ứng tại `src/content/topics/content-blocks-pl-new.ts`:
+**Vòng 1–3** (WebSearch, đối chiếu chéo vbpl.vn/Công báo Chính phủ/cổng bộ
+ngành) mở khóa 8/9 chủ đề PL còn thiếu ban đầu — xem
+`src/content/documents/index.ts` và `content-blocks-pl-new.ts`:
 
-| Chủ đề | Văn bản đã nhập | Trạng thái | Còn thiếu gì |
-|---|---|---|---|
-| PL-01 | Luật ATTT mạng 86/2015/QH13 | `chua_xac_minh` (nghi ngờ hết hiệu lực một phần, chưa rõ điều khoản nào) | Xác minh trực tiếp trang lược đồ vbpl.vn |
-| PL-02 | Luật An ninh mạng 24/2018/QH14 | `con_hieu_luc` | — (đã xác minh tương đối chắc chắn) |
-| PL-04 | Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 (thay Nghị định 13/2023/NĐ-CP) | `con_hieu_luc` | Nghị định hướng dẫn thi hành mới chưa xác minh đủ để nhập số hiệu; nội dung chi tiết (quyền chủ thể, DPIA...) chưa trích dẫn |
-| PL-05 | Nghị định 85/2016/NĐ-CP | `con_hieu_luc` | Chưa kiểm tra văn bản sửa đổi/bổ sung sau 2016 |
-| PL-09 | Thông tư 13/2018/TT-NHNN | `con_hieu_luc` | Chưa kiểm tra thông tư sửa đổi/bổ sung sau 2018 |
-| PL-11 | Thông tư 20/2017/TT-BTTTT | `con_hieu_luc` | **Thời hạn báo cáo cụ thể VẪN chưa xác minh — vẫn là ưu tiên cao nhất, xem cảnh báo trong ContentBlock** |
+| Chủ đề | Văn bản đã nhập (trạng thái tại thời điểm đó) |
+|---|---|
+| PL-01 | Luật ATTT mạng 86/2015/QH13 |
+| PL-02 | Luật An ninh mạng 24/2018/QH14 |
+| PL-03 | Nghị định 53/2022/NĐ-CP |
+| PL-04 | Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 (thay NĐ 13/2023/NĐ-CP) |
+| PL-05 | Nghị định 85/2016/NĐ-CP |
+| PL-09 | Thông tư 13/2018/TT-NHNN |
+| PL-10 | Quyết định 2345/QĐ-NHNN |
+| PL-11 | Thông tư 20/2017/TT-BTTTT |
 
-**Vòng tra cứu thứ ba** (cùng ngày) mở khóa thêm PL-03 và PL-10:
+**Vòng 4** (theo phản hồi trực tiếp của người dùng, cùng ngày) — sửa 3 điểm
+đã lỗi thời/chưa chính xác ở vòng 1–3:
 
-| Chủ đề | Văn bản đã nhập | Trạng thái | Còn thiếu gì |
-|---|---|---|---|
-| PL-03 | Nghị định 53/2022/NĐ-CP (hướng dẫn Luật An ninh mạng) | `con_hieu_luc` | Điều kiện áp dụng cụ thể (đối tượng, loại dữ liệu, thời hạn lưu) chưa trích dẫn chi tiết |
-| PL-10 | Quyết định 2345/QĐ-NHNN | `con_hieu_luc`, sourceTier **B** (văn bản hành chính cá biệt, không phải VBQPPL công bố rộng rãi) | Ngưỡng 10tr/20tr đồng đã nêu trong ContentBlock nhưng **CHƯA đối chiếu trực tiếp văn bản gốc** — cảnh báo rõ trong nội dung, bắt buộc xác minh lại trước khi dùng chính thức |
+| Chủ đề | Thay đổi | Trạng thái mới |
+|---|---|---|
+| PL-01, PL-02 | **Luật An ninh mạng 116/2025/QH15** (hiệu lực 01/07/2026, đã qua) hợp nhất và thay thế CẢ Luật ATTT mạng 86/2015 LẪN Luật An ninh mạng 24/2018 | Cả hai luật cũ chuyển `het_hieu_luc`; Luật 116/2025 mới thêm với `con_hieu_luc`. Có điều khoản chuyển tiếp 12 tháng cho hệ thống/sản phẩm đã tuân thủ luật cũ |
+| PL-08, PL-10 | **Thông tư 77/2025/TT-NHNN** (31/12/2025, hiệu lực 01/03/2026, riêng Điều 3/10 hiệu lực 01/07/2026) sửa đổi, bổ sung TT50/2024/TT-NHNN — mở rộng sang mobile money, thêm đối tượng áp dụng, thay Phụ lục 01/02/04 | TT50/2024 vẫn `con_hieu_luc` (chỉ sửa đổi, không thay thế toàn văn); TT77/2025 mới thêm |
+| PL-10 | Nội dung Quyết định 2345/QĐ-NHNN đã được quy định lại tại TT50/2024 | QĐ 2345 chuyển `het_hieu_luc`; ContentBlock PL-10 viết lại để trích TT50/2024 + TT77/2025 thay vì QĐ2345 |
+
+**Ngày ban hành Luật 116/2025/QH15 (10/12/2025) chỉ lấy từ một nguồn duy
+nhất trong vòng tra cứu này — nên đối chiếu lại chính xác qua vbpl.vn.**
+Ngưỡng xác thực sinh trắc học cho doanh nghiệp/hộ kinh doanh theo TT77/2025
+(hiệu lực 01/07/2026) CHƯA được xác minh cụ thể.
 
 **Chỉ còn duy nhất 1/93 chủ đề chưa có ContentBlock nào:**
 
