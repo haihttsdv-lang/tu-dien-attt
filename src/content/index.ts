@@ -9,6 +9,8 @@ import { contentBlocksNh } from "./topics/content-blocks-nh";
 import { contentBlocksKg } from "./topics/content-blocks-kg";
 import { contentBlocksCc } from "./topics/content-blocks-cc";
 import { contentBlocksMn } from "./topics/content-blocks-mn";
+import { contentBlocksT2 } from "./topics/content-blocks-t2";
+import { contentBlocksT2Pl } from "./topics/content-blocks-t2-pl";
 import { legalDocuments, documentArticles, documentRelations } from "./documents";
 import { frameworks } from "./frameworks";
 import { terms } from "./terms";
@@ -37,7 +39,9 @@ export const contentBundle: ContentBundle = {
     ...contentBlocksNh,
     ...contentBlocksKg,
     ...contentBlocksCc,
-    ...contentBlocksMn
+    ...contentBlocksMn,
+    ...contentBlocksT2,
+    ...contentBlocksT2Pl
   ],
   terms,
   auditPrograms,
