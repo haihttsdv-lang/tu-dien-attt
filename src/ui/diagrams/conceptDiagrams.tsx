@@ -10,6 +10,7 @@ import { OAuthFlowDiagram } from "../components/diagrams/OAuthFlowDiagram";
 import { MfaFlowDiagram } from "../components/diagrams/MfaFlowDiagram";
 import { LogPipelineDiagram } from "../components/diagrams/LogPipelineDiagram";
 import { NetworkZonesDiagram } from "../components/diagrams/NetworkZonesDiagram";
+import { CloudResponsibilityDiagram } from "../components/diagrams/CloudResponsibilityDiagram";
 
 /**
  * So do khai niem thu cong cho cac chu de "kinh dien" — day la hinh minh
@@ -192,6 +193,7 @@ const registry: Record<string, ReactNode[]> = {
   "NH-06": [<OAuthFlowDiagram key="oauth" />],
   "VH-02": [<LogPipelineDiagram key="logpipe" />],
   "KT-01": [<NetworkZonesDiagram key="netzones" />],
+  "KT-06": [<CloudResponsibilityDiagram key="cloudresp" />],
   "KT-10": [VULN_MGMT_CYCLE],
   "VH-01": [SOC_TIERS],
   "KT-09": [DATA_CLASSIFICATION],
