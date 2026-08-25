@@ -83,9 +83,11 @@ sau của URD **cố ý chưa triển khai**, không phải thiếu sót:
   liệu nhạy cảm để bảo vệ.
 - Ma trận ánh xạ chéo (Mục 7) mới có dữ liệu minh họa, chưa phủ đủ cặp ưu
   tiên (1)–(4) theo URD §7.
-- Công cụ tác nghiệp kiểm tra (chương trình kiểm toán, ngân hàng câu hỏi,
-  thư viện bằng chứng, cẩm nang sự cố) mới có ví dụ minh họa cho một vài
-  chủ đề, chưa phủ toàn bộ 93 chủ đề.
+- Công cụ tác nghiệp kiểm tra (chương trình kiểm toán, ngân hàng câu hỏi
+  phỏng vấn) nay phủ **10/93 chủ đề** (KT-02, KT-03, KT-04, KT-10, NH-02,
+  QT-03, PL-08, CC-01, VH-06 + thư viện bằng chứng 6 mục) — vẫn là ví dụ
+  minh họa theo phương pháp luận chung, chưa phủ toàn bộ 93 chủ đề. Cẩm
+  nang sự cố (IncidentPlaybook) vẫn cố ý để trống — xem mục riêng ở trên.
 - Nội dung T3 (tham chiếu chuyên sâu — danh mục điều khoản đầy đủ, không
   giới hạn độ dài) — chưa triển khai cho chủ đề nào.
 - T1 VÀ T2 hiện đều phủ **92/93 chủ đề** — chỉ còn thiếu PL-12 (dự thảo,
