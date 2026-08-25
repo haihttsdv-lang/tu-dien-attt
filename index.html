@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0f172a" />
+    <!--
+      Phong thu theo chieu sau cho chinh ung dung (URD Muc 12.6/12.7 —
+      "se la nghich ly nghiem trong neu ung dung cua bo phan ATTT khong
+      dat chinh cac yeu cau ma bo phan do di kiem tra"). Ung dung khong
+      goi mang, khong dung eval/inline script — CSP nay chi la lop bao
+      ve bo sung phong truong hop mot phu thuoc bi xam pham trong tuong
+      lai. Gioi han o meta tag vi GitHub Pages khong cho cau hinh HTTP
+      response header tuy chinh (frame-ancestors chu dinh khong dua vao
+      day vi trinh duyet bo qua no khi khai bao qua meta — chi co hieu
+      luc qua HTTP header that).
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'"
+    />
     <meta
       name="description"
       content="Bách khoa toàn thư An toàn thông tin ngành Ngân hàng — công cụ tra cứu tham khảo pháp lý, chuẩn mực và kiểm soát ATTT. Không phải nguồn chân lý pháp lý."

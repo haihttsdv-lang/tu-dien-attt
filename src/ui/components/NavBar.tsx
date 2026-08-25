@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { BrandIcon } from "./BrandIcon";
 
 const NAV_ITEMS = [
   { to: "/", label: "Trang chủ", icon: "🏠" },
@@ -6,6 +7,14 @@ const NAV_ITEMS = [
   { to: "/chu-de", label: "Chủ đề", icon: "📚" },
   { to: "/anh-xa", label: "Ánh xạ", icon: "🔗" },
   { to: "/khan-cap", label: "Khẩn cấp", icon: "🚨" }
+];
+
+/** Chi hien tren TopNav (man hinh rong) — tranh qua tai bottom nav di dong. */
+const DESKTOP_ONLY_LINKS = [
+  { to: "/moi-de-doa", label: "Mối đe dọa" },
+  { to: "/cong-cu-kiem-tra", label: "Công cụ kiểm tra" },
+  { to: "/da-danh-dau", label: "Đã đánh dấu" },
+  { to: "/gioi-thieu", label: "Giới thiệu" }
 ];
 
 function NavLinks() {
@@ -32,14 +41,20 @@ function NavLinks() {
 export function TopNav() {
   return (
     <header className="top-nav">
-      <NavLink to="/" className="brand" end>
-        Bách khoa ATTT Ngân hàng
+      <NavLink to="/" className="brand" end title="Bách khoa ATTT Ngân hàng">
+        <BrandIcon />
       </NavLink>
       <nav className="top-nav-links">
         <NavLinks />
-        <NavLink to="/gioi-thieu" className="nav-link">
-          Giới thiệu
-        </NavLink>
+        {DESKTOP_ONLY_LINKS.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) => `nav-link${isActive ? " nav-link--active" : ""}`}
+          >
+            {item.label}
+          </NavLink>
+        ))}
       </nav>
     </header>
   );

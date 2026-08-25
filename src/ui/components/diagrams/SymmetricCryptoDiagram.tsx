@@ -1,16 +1,27 @@
+import { wrapLabel } from "./svgText";
+
 /** Co che ma hoa doi xung (chia se chung mot khoa bi mat) — KT-04. */
 export function SymmetricCryptoDiagram() {
   const width = 440;
-  const height = 200;
+  const height = 210;
 
-  const box = (x: number, y: number, w: number, h: number, label: string, fill = "var(--surface)") => (
-    <g key={label + x}>
-      <rect x={x} y={y} width={w} height={h} rx={8} fill={fill} stroke="var(--border)" strokeWidth={2} />
-      <text x={x + w / 2} y={y + h / 2} textAnchor="middle" dominantBaseline="middle" fontSize={12} fontWeight={700} fill="var(--text)">
-        {label}
-      </text>
-    </g>
-  );
+  const box = (x: number, y: number, w: number, h: number, label: string, fill = "var(--surface)", charsPerLine = 12) => {
+    const lines = wrapLabel(label, charsPerLine);
+    const lineHeight = 13;
+    const startY = y + h / 2 - ((lines.length - 1) * lineHeight) / 2;
+    return (
+      <g key={`${label}-${x}-${y}`}>
+        <rect x={x} y={y} width={w} height={h} rx={8} fill={fill} stroke="var(--border)" strokeWidth={2} />
+        <text x={x + w / 2} y={startY} textAnchor="middle" dominantBaseline="middle" fontSize={11.5} fontWeight={700} fill="var(--text)">
+          {lines.map((line, i) => (
+            <tspan key={i} x={x + w / 2} dy={i === 0 ? 0 : lineHeight}>
+              {line}
+            </tspan>
+          ))}
+        </text>
+      </g>
+    );
+  };
 
   return (
     <figure className="diagram-figure">
@@ -30,14 +41,14 @@ export function SymmetricCryptoDiagram() {
         <line x1={360} y1={85} x2={410} y2={85} stroke="var(--text-muted)" strokeWidth={2} strokeDasharray="4,3" markerEnd="url(#sym-arrow)" />
         <text x={385} y={72} textAnchor="middle" fontSize={9} fill="var(--text-muted)">gửi đi</text>
 
-        <rect x={135} y={140} width={100} height={40} rx={8} fill="var(--danger-bg)" stroke="var(--danger-fg)" strokeWidth={2} />
+        <rect x={135} y={150} width={100} height={40} rx={8} fill="var(--danger-bg)" stroke="var(--danger-fg)" strokeWidth={2} />
         <text x={185} y={160} textAnchor="middle" dominantBaseline="middle" fontSize={11} fontWeight={700} fill="var(--danger-fg)">
           🔑 Khóa bí mật
         </text>
-        <line x1={185} y1={140} x2={185} y2={120} stroke="var(--danger-fg)" strokeWidth={2} strokeDasharray="4,3" />
+        <line x1={185} y1={150} x2={185} y2={120} stroke="var(--danger-fg)" strokeWidth={2} strokeDasharray="4,3" />
 
-        <text x={width / 2} y={185} textAnchor="middle" fontSize={10} fill="var(--text-muted)">
-          Cùng một khóa dùng để MÃ HÓA và GIẢI MÃ — hai bên phải trao đổi khóa này an toàn từ trước
+        <text x={width / 2} y={198} textAnchor="middle" fontSize={9.5} fill="var(--text-muted)">
+          Cùng một khóa dùng để MÃ HÓA và GIẢI MÃ — hai bên phải trao đổi khóa an toàn từ trước
         </text>
       </svg>
       <ol className="diagram-legend">

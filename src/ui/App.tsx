@@ -17,6 +17,8 @@ const PointInTimePage = lazy(() => import("./pages/PointInTimePage").then((m) =>
 const TermsPage = lazy(() => import("./pages/TermsPage").then((m) => ({ default: m.TermsPage })));
 const MappingPage = lazy(() => import("./pages/MappingPage").then((m) => ({ default: m.MappingPage })));
 const AuditToolsPage = lazy(() => import("./pages/AuditToolsPage").then((m) => ({ default: m.AuditToolsPage })));
+const ThreatMapPage = lazy(() => import("./pages/ThreatMapPage").then((m) => ({ default: m.ThreatMapPage })));
+const BookmarksPage = lazy(() => import("./pages/BookmarksPage").then((m) => ({ default: m.BookmarksPage })));
 const EmergencyPage = lazy(() => import("./pages/EmergencyPage").then((m) => ({ default: m.EmergencyPage })));
 const AboutPage = lazy(() => import("./pages/AboutPage").then((m) => ({ default: m.AboutPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })));
@@ -47,6 +49,8 @@ export default function App() {
                 <Route path="/thuat-ngu" element={<TermsPage />} />
                 <Route path="/anh-xa" element={<MappingPage />} />
                 <Route path="/cong-cu-kiem-tra" element={<AuditToolsPage />} />
+                <Route path="/moi-de-doa" element={<ThreatMapPage />} />
+                <Route path="/da-danh-dau" element={<BookmarksPage />} />
                 <Route path="/khan-cap" element={<EmergencyPage />} />
                 <Route path="/gioi-thieu" element={<AboutPage />} />
                 <Route path="*" element={<NotFoundPage />} />

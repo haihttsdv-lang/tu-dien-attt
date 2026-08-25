@@ -101,9 +101,15 @@ a {
     z-index: 20;
   }
   .top-nav .brand {
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text);
+    border-radius: 8px;
+  }
+  .top-nav .brand:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
   .top-nav-links {
     display: flex;
@@ -422,4 +428,51 @@ a {
   gap: 6px;
   font-size: 0.75rem;
   color: var(--text-muted);
+}
+
+/* ---------- In an (chuan bi ho so kiem tra) ---------- */
+
+@media print {
+  .top-nav,
+  .bottom-nav,
+  .btn-secondary,
+  .btn-primary,
+  .chip,
+  .tier-tabs,
+  .search-input,
+  form[role="search"] {
+    display: none !important;
+  }
+
+  body,
+  .app-main {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .card,
+  .diagram-figure,
+  .warning-banner,
+  .disclaimer-footer {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #999999 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #444444;
+  }
+
+  .disclaimer-footer {
+    border: 1px solid #000000 !important;
+  }
 }

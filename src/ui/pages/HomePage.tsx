@@ -50,6 +50,12 @@ export function HomePage() {
         <Link to="/anh-xa" className="btn-secondary" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}>
           🔗 Ánh xạ khung
         </Link>
+        <Link to="/moi-de-doa" className="btn-secondary" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}>
+          🎯 Mối đe dọa – kiểm soát
+        </Link>
+        <Link to="/da-danh-dau" className="btn-secondary" style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}>
+          ★ Đã đánh dấu
+        </Link>
       </div>
 
       <h2 style={{ marginTop: 24 }}>Duyệt theo nhóm chủ đề</h2>

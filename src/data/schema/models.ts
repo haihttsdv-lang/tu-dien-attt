@@ -287,6 +287,24 @@ export const IncidentPlaybook = z.object({
 });
 export type IncidentPlaybook = z.infer<typeof IncidentPlaybook>;
 
+/**
+ * FR-A06: "Ban do moi de doa - kiem soat" — chon mot ky thuat tan cong, hien
+ * thi cac chu de/kiem soat dang doi pho. Day la du lieu DINH HUONG/DIEU
+ * HUONG (tuong tu Mapping — ket qua tong hop tu kien thuc chuyen mon), KHONG
+ * phai noi dung quy pham nen KHONG bat buoc sources[] kieu FR-T01 — nhung
+ * van phai trung thuc ve muc do chac chan (xem mitreNote).
+ */
+export const ThreatTechnique = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  mitreId: z.string().optional(),
+  tactic: z.string().min(1),
+  description: z.string().min(1),
+  controlTopicIds: z.array(z.string()).min(1),
+  mitreNote: z.string().optional()
+});
+export type ThreatTechnique = z.infer<typeof ThreatTechnique>;
+
 // ---------------------------------------------------------------------------
 // Goi du lieu tong hop (dung cho index tim kiem / IndexedDB seed)
 // ---------------------------------------------------------------------------

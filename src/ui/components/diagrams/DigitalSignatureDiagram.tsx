@@ -1,17 +1,27 @@
+import { wrapLabel } from "./svgText";
+
 /** Co che chu ky so: bam thong diep, ky bang khoa RIENG cua nguoi gui;
  * nguoi nhan xac minh bang khoa CONG KHAI cua nguoi gui — KT-04. */
 export function DigitalSignatureDiagram() {
   const width = 480;
-  const height = 260;
+  const height = 320;
 
-  const box = (x: number, y: number, w: number, h: number, label: string, fill = "var(--surface)") => {
-    const lines = label.split("\n");
+  const box = (
+    x: number,
+    y: number,
+    w: number,
+    h: number,
+    label: string,
+    fill = "var(--surface)",
+    charsPerLine = 13
+  ) => {
+    const lines = wrapLabel(label, charsPerLine);
     const lineHeight = 13;
     const startY = y + h / 2 - ((lines.length - 1) * lineHeight) / 2;
     return (
-      <g key={label + x + y}>
+      <g key={`${label}-${x}-${y}`}>
         <rect x={x} y={y} width={w} height={h} rx={8} fill={fill} stroke="var(--border)" strokeWidth={2} />
-        <text x={x + w / 2} y={startY} textAnchor="middle" dominantBaseline="middle" fontSize={11} fontWeight={700} fill="var(--text)">
+        <text x={x + w / 2} y={startY} textAnchor="middle" dominantBaseline="middle" fontSize={10.5} fontWeight={700} fill="var(--text)">
           {lines.map((line, i) => (
             <tspan key={i} x={x + w / 2} dy={i === 0 ? 0 : lineHeight}>
               {line}
@@ -32,38 +42,39 @@ export function DigitalSignatureDiagram() {
           </marker>
         </defs>
 
-        <text x={110} y={16} textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text-muted)">Bên gửi — KÝ</text>
+        <text x={100} y={16} textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text-muted)">Bên gửi — KÝ</text>
         <text x={370} y={16} textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text-muted)">Bên nhận — XÁC MINH</text>
 
-        {box(10, 30, 90, 40, "Thông điệp")}
-        <line x1={100} y1={50} x2={140} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
-        {box(140, 30, 80, 40, "Băm (hash)")}
-        <line x1={220} y1={50} x2={260} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
-        {box(260, 20, 110, 60, "Ký bằng khóa RIÊNG của người gửi", "var(--danger-bg)")}
-        <line x1={370} y1={50} x2={410} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
-        {box(400, 30, 70, 40, "Chữ ký", "var(--warn-bg)")}
+        {/* Hang 1: ben gui bam va ky */}
+        {box(10, 30, 85, 40, "Thông điệp")}
+        <line x1={95} y1={50} x2={130} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
+        {box(130, 30, 75, 40, "Băm (hash)")}
+        <line x1={205} y1={50} x2={240} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
+        {box(240, 20, 120, 60, "Ký bằng khóa RIÊNG của người gửi", "var(--danger-bg)", 13)}
+        <line x1={360} y1={50} x2={395} y2={50} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
+        {box(395, 30, 75, 40, "Chữ ký", "var(--warn-bg)")}
 
-        <line x1={110} y1={70} x2={110} y2={100} stroke="var(--text-muted)" strokeWidth={2} strokeDasharray="4,3" />
-        <text x={140} y={90} fontSize={9.5} fill="var(--text-muted)">
-          thông điệp gốc + chữ ký cùng gửi đi
+        <text x={240} y={100} textAnchor="middle" fontSize={9.5} fill="var(--text-muted)">
+          Thông điệp gốc + chữ ký cùng được gửi đi
         </text>
-        <line x1={435} y1={70} x2={435} y2={110} stroke="var(--text-muted)" strokeWidth={2} strokeDasharray="4,3" markerEnd="url(#sig-arrow)" />
+        <line x1={432} y1={70} x2={432} y2={140} stroke="var(--text-muted)" strokeWidth={2} strokeDasharray="4,3" markerEnd="url(#sig-arrow)" />
 
-        {box(10, 110, 90, 40, "Thông điệp\nnhận được")}
-        <line x1={100} y1={130} x2={140} y2={130} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
-        {box(140, 110, 80, 40, "Băm (hash)")}
+        {/* Hang 2 (cach xa hang 1): ben nhan bam lai va xac minh */}
+        {box(10, 150, 85, 40, "Thông điệp\nnhận được", "var(--surface)", 13)}
+        <line x1={95} y1={170} x2={130} y2={170} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
+        {box(130, 150, 75, 40, "Băm (hash)")}
 
-        {box(400, 110, 70, 40, "Chữ ký\nnhận được", "var(--warn-bg)")}
-        <line x1={400} y1={130} x2={330} y2={130} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
-        {box(255, 100, 110, 60, "Giải mã chữ ký bằng khóa CÔNG KHAI của người gửi", "var(--info-bg)")}
+        {box(395, 150, 75, 40, "Chữ ký\nnhận được", "var(--warn-bg)", 13)}
+        <line x1={395} y1={170} x2={365} y2={170} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#sig-arrow)" />
+        {box(240, 140, 120, 60, "Giải mã chữ ký bằng khóa CÔNG KHAI của người gửi", "var(--info-bg)", 13)}
 
-        <line x1={180} y1={150} x2={220} y2={180} stroke="var(--text-muted)" strokeWidth={2} />
-        <line x1={310} y1={160} x2={230} y2={180} stroke="var(--text-muted)" strokeWidth={2} />
-        <rect x={165} y={185} width={130} height={44} rx={8} fill="var(--ok-bg)" stroke="var(--ok-fg)" strokeWidth={2} />
-        <text x={230} y={200} textAnchor="middle" fontSize={10} fontWeight={700} fill="var(--ok-fg)">
+        <line x1={168} y1={190} x2={220} y2={230} stroke="var(--text-muted)" strokeWidth={2} />
+        <line x1={300} y1={200} x2={250} y2={230} stroke="var(--text-muted)" strokeWidth={2} />
+        <rect x={155} y={240} width={150} height={50} rx={8} fill="var(--ok-bg)" stroke="var(--ok-fg)" strokeWidth={2} />
+        <text x={230} y={260} textAnchor="middle" fontSize={10.5} fontWeight={700} fill="var(--ok-fg)">
           So khớp hai giá trị băm
         </text>
-        <text x={230} y={216} textAnchor="middle" fontSize={9} fill="var(--ok-fg)">
+        <text x={230} y={276} textAnchor="middle" fontSize={9} fill="var(--ok-fg)">
           Trùng → hợp lệ &amp; toàn vẹn
         </text>
       </svg>

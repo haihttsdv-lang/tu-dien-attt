@@ -1,22 +1,29 @@
+import { wrapLabel } from "./svgText";
+
 /** Duong di cua nhat ky tu nguon toi kho tap trung — VH-02. */
 export function LogPipelineDiagram() {
-  const width = 480;
-  const height = 160;
+  const width = 500;
+  const height = 170;
 
-  const stage = (x: number, label: string, sub: string, w = 100) => (
-    <g key={x}>
-      <rect x={x} y={40} width={w} height={60} rx={8} fill="var(--surface)" stroke="var(--border)" strokeWidth={2} />
-      <text x={x + w / 2} y={62} textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text)">
-        {label}
-      </text>
-      <text x={x + w / 2} y={78} textAnchor="middle" fontSize={8.5} fill="var(--text-muted)">
-        {sub}
-      </text>
-    </g>
-  );
+  const stage = (x: number, label: string, sub: string, w = 105) => {
+    const subLines = wrapLabel(sub, 16);
+    return (
+      <g key={x}>
+        <rect x={x} y={40} width={w} height={70} rx={8} fill="var(--surface)" stroke="var(--border)" strokeWidth={2} />
+        <text x={x + w / 2} y={62} textAnchor="middle" fontSize={11} fontWeight={700} fill="var(--text)">
+          {label}
+        </text>
+        {subLines.map((line, i) => (
+          <text key={i} x={x + w / 2} y={78 + i * 11} textAnchor="middle" fontSize={8.5} fill="var(--text-muted)">
+            {line}
+          </text>
+        ))}
+      </g>
+    );
+  };
 
   const arrow = (x1: number, x2: number) => (
-    <line key={`${x1}-${x2}`} x1={x1} y1={70} x2={x2} y2={70} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#log-arrow)" />
+    <line key={`${x1}-${x2}`} x1={x1} y1={75} x2={x2} y2={75} stroke="var(--accent)" strokeWidth={2} markerEnd="url(#log-arrow)" />
   );
 
   return (
@@ -29,15 +36,15 @@ export function LogPipelineDiagram() {
           </marker>
         </defs>
 
-        {stage(5, "Nguồn", "hệ điều hành, ứng dụng, thiết bị mạng", 95)}
-        {arrow(100, 130)}
-        {stage(130, "Thu thập", "agent / syslog / API", 95)}
-        {arrow(225, 255)}
-        {stage(255, "Chuẩn hóa", "đồng bộ định dạng + thời gian (NTP)", 105)}
-        {arrow(360, 390)}
-        {stage(390, "Kho tập trung", "chỉ ghi thêm, phân tầng lưu trữ", 85)}
+        {stage(5, "Nguồn", "hệ điều hành, ứng dụng, thiết bị mạng", 110)}
+        {arrow(115, 140)}
+        {stage(140, "Thu thập", "agent / syslog / API", 105)}
+        {arrow(245, 270)}
+        {stage(270, "Chuẩn hóa", "đồng bộ định dạng + thời gian (NTP)", 110)}
+        {arrow(380, 405)}
+        {stage(405, "Kho tập trung", "chỉ ghi thêm, phân tầng lưu trữ", 90)}
 
-        <text x={width / 2} y={130} textAnchor="middle" fontSize={9.5} fill="var(--text-muted)">
+        <text x={width / 2} y={135} textAnchor="middle" fontSize={9.5} fill="var(--text-muted)">
           Chuyển về kho tập trung càng sớm càng tốt — giảm thời gian nhật ký còn ở nơi có thể bị can thiệp
         </text>
       </svg>
